@@ -4,9 +4,11 @@ import './GamesPage.css'
 import gameService from '../../services/game.services'
 import GamesList from './../../components/GamesList/GamesList'
 import { Container } from 'react-bootstrap'
+
+
 const GamesPage = () => {
 
-    const { showGames, setShowGames } = useState([])
+    const [games, setGames] = useState([])
 
     useEffect(() => {
         loadGames()
@@ -15,7 +17,7 @@ const GamesPage = () => {
     const loadGames = () => {
         gameService
             .getGames()
-            .then(({ data }) => setShowGames(data))
+            .then(({ data }) => setGames(data))
             .catch(err => console.error(err))
     }
 
@@ -24,17 +26,9 @@ const GamesPage = () => {
         <>
             <Container>
                 <h1>Available Video Games</h1>
-                <GamesList games={showGames} />
+                {<GamesList games={games} />}
             </Container>
         </>
-
-
-
-
-
-
-
-
     )
 }
 

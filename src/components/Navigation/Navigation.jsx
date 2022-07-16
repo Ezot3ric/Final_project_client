@@ -13,7 +13,7 @@ const Navigator = () => {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link href="#features">Home</Nav.Link>
-                        <Nav.Link href="#pricing">Games</Nav.Link>
+                        <Nav.Link href="/games-list">Games</Nav.Link>
 
                     </Nav>
                     <Nav>
