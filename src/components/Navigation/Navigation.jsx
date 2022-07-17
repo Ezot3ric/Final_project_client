@@ -6,9 +6,9 @@ const Navigator = () => {
 
     return (
 
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="mb-5">
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" >
             <Container>
-                <Navbar.Brand href="/">Lo tienes tío_</Navbar.Brand>
+                <Navbar.Brand href="/">You got it man</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
