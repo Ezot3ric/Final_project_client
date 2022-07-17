@@ -1,9 +1,9 @@
 import './GamesList.css'
 import { Col, Row } from 'react-bootstrap'
+import GameCard from '../GameCard/GameCard'
 
 
 const GamesList = ({ games }) => {
-
     return (
         <Row>
             {
