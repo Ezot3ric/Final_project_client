@@ -21,17 +21,17 @@ class GameService {
 
 
     addGame(gameData) {
-        return this.api.get('/addGame', gameData)
+        return this.api.post('/addGame', gameData)
     }
 
 
     updateGame(game_id, gameData) {
-        return this.api.get(`/updateGame/${game_id}`, gameData)
+        return this.api.post(`/updateGame/${game_id}`, gameData)
     }
 
 
     deleteGame(game_id) {
-        return this.api.get(`/deleteGame/${game_id}`)
+        return this.api.post(`/deleteGame/${game_id}`)
     }
 }
 
