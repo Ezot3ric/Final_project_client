@@ -6,14 +6,15 @@ const Navigator = () => {
 
     return (
 
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="mb-5">
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" >
             <Container>
-                <Navbar.Brand href="/">Lo tienes tío_</Navbar.Brand>
+                <Navbar.Brand href="/">You got it man</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="#features">Home</Nav.Link>
-                        <Nav.Link href="#pricing">Games</Nav.Link>
+                        <Nav.Link href="/">Home</Nav.Link>
+                        <Nav.Link href="/games-list">Games</Nav.Link>
+                        <Nav.Link href="/addGame">New Game</Nav.Link>
 
                     </Nav>
                     <Nav>

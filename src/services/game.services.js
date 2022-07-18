@@ -9,7 +9,6 @@ class GameService {
         })
     }
 
-
     getGames() {
         return this.api.get('/getAllGames')
     }
