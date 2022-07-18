@@ -9,7 +9,7 @@ const GameCard = ({ img, name, _id, price }) => {
             <Card.Img varian="top" src={img} />
             <Card.Body>
                 <Card.Title>{name}</Card.Title>
-                <Card.Subtitle>{price}</Card.Subtitle>
+                <Card.Subtitle>{price}$</Card.Subtitle>
                 <hr />
                 <Link to={`/details/${_id}`}>
                     <div className="d-grid">

@@ -70,7 +70,7 @@ INTERN CLIEN ARQUITEC
 | Game List     |   Game List  |
 | Footer     |   Footer |
 
-
+````
 
 ├── homepage
 │   ├── Section
@@ -89,7 +89,7 @@ INTERN CLIEN ARQUITEC
 │   └── Button
 └── profile-edit-page
     └── Form
-```
+````
 
 
 

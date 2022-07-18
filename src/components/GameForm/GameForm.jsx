@@ -8,19 +8,17 @@ const GameForm = () => {
 
         name: '',
         release: '',
+        imgs: '',
         description: '',
-        img: '',
         rating: '',
-        platform: '',
+        platforms: '',
         genre: '',
         price: '',
-
+        studio: '',
     })
 
     const handleChange = e => {
-        const { value } = e.target.value
-        const name = e.target.name
-
+        const { value, name } = e.target
         setGameData({ ...gameData, [name]: value })
     }
 
@@ -29,17 +27,17 @@ const GameForm = () => {
 
         gameService
             .addGame(gameData)
-            .then(() => console.log('prueba form'))
-            .catch(ERR => console.error(ERR))
+            .then(() => console.log('yiha!'))
+            .catch(err => console.err(err))
+
     }
 
-    const { name, release, description, img, rating, platform, genre, price } = gameData
-    console.log(gameData)
+    const { name, release, imgs, description, rating, platforms, genre, price, studio } = gameData
+
     return (
         <Form onSubmit={handleSubmit}>
-
             <Form.Group className="mb-3" controlId="name">
-                <Form.Label className=''>Name</Form.Label>
+                <Form.Label>Name</Form.Label>
                 <Form.Control type="text" value={name} onChange={handleChange} name="name" />
             </Form.Group>
 
@@ -48,43 +46,48 @@ const GameForm = () => {
                 <Form.Control type="text" value={release} onChange={handleChange} name="release" />
             </Form.Group>
 
+            <Form.Group className="mb-3" controlId="imgs">
+                <Form.Label>Imagen</Form.Label>
+                <Form.Control type="text" value={imgs} onChange={handleChange} name="imgs" />
+            </Form.Group>
+
             <Form.Group className="mb-3" controlId="description">
-                <Form.Label>Description</Form.Label>
+                <Form.Label>Descripción</Form.Label>
                 <Form.Control type="text" value={description} onChange={handleChange} name="description" />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="rating">
+                <Form.Label>Rating</Form.Label>
+                <Form.Control type="number" value={rating} onChange={handleChange} name="rating" />
             </Form.Group>
 
             <Row>
                 <Col>
-                    <Form.Group className="mb-3" controlId="rating">
-                        <Form.Label>Rating</Form.Label>
-                        <Form.Control type="number" value={rating} onChange={handleChange} name="rating" />
+                    <Form.Group className="mb-3" controlId="platforms">
+                        <Form.Label>Platforms</Form.Label>
+                        <Form.Control type="text" value={platforms} onChange={handleChange} name="platforms" />
                     </Form.Group>
                 </Col>
 
                 <Col>
-                    <Form.Group className="mb-3" controlId="platform">
-                        <Form.Label>Platform</Form.Label>
-                        <Form.Control type="text" value={platform} onChange={handleChange} name="platform" />
+                    <Form.Group className="mb-3" controlId="genre">
+                        <Form.Label>Genre</Form.Label>
+                        <Form.Control type="text" value={genre} onChange={handleChange} name="genre" />
+                    </Form.Group>
+                </Col>
+
+                <Col>
+                    <Form.Group className="mb-3" controlId="price">
+                        <Form.Label>Price</Form.Label>
+                        <Form.Control type="number" value={price} onChange={handleChange} name="price" />
                     </Form.Group>
                 </Col>
             </Row>
 
-            <Row>
-                <Form.Group className="mb-3" controlId="img">
-                    <Form.Label>Imagen (URL)</Form.Label>
-                    <Form.Control type="text" value={img} onChange={handleChange} name="img" />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="genre">
-                    <Form.Label>Genre</Form.Label>
-                    <Form.Control type="text" value={genre} onChange={handleChange} name="genre" />
-                </Form.Group>
-
-                <Form.Group className="mb-6" controlId="price">
-                    <Form.Label>Price</Form.Label>
-                    <Form.Control type="number" value={price} onChange={handleChange} name="price" />
-                </Form.Group>
-            </Row>
+            <Form.Group className="mb-3" controlId="studio">
+                <Form.Label>Studio</Form.Label>
+                <Form.Control type="text" value={studio} onChange={handleChange} name="studio" />
+            </Form.Group>
 
             <div className="d-grid">
                 <Button variant="dark" type="submit">Register new game</Button>
