@@ -11,9 +11,9 @@ function App() {
     <>
 
       <Navigator />
-      
+
       <AppRoutes />
-      <HomePage />
+
 
       <Footer />
 
