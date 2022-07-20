@@ -19,13 +19,13 @@ const Navigator = () => {
                     </Nav>
                     <Nav>
                         <NavDropdown title="User" id="collasible-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Register</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">
+                            <NavDropdown.Item href="/signup">Sign Up</NavDropdown.Item>
+                            <NavDropdown.Item href="/login">
                                 Log In
                             </NavDropdown.Item>
 
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.4">
+                            <NavDropdown.Item href="/">
                                 Log Out
                             </NavDropdown.Item>
                         </NavDropdown>
