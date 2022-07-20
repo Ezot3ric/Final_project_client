@@ -20,6 +20,7 @@ const GameForm = () => {
     const handleChange = e => {
         const { value, name } = e.target
         setGameData({ ...gameData, [name]: value })
+        console.log(setGameData)
     }
 
     const handleSubmit = e => {

@@ -1,10 +1,8 @@
-import { useEffect } from 'react'
-import { useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import './GamesPage.css'
 import gameService from '../../services/game.services'
 import GamesList from './../../components/GamesList/GamesList'
 import { Container } from 'react-bootstrap'
-
 
 const GamesPage = () => {
 
