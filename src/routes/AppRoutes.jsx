@@ -3,6 +3,7 @@ import GameDetails from '../pages/GameDetails/GameDetails'
 import GamesPage from '../pages/GamesPage/GamesPage'
 import NewGamePage from '../pages/NewGamePage/NewGamePage'
 import HomePage from '../pages/HomePage/HomePage'
+import Cart from '../components/Cart/Cart'
 
 
 const AppRoutes = () => {
@@ -13,6 +14,7 @@ const AppRoutes = () => {
             <Route path="/games-list" element={<GamesPage />} />
             <Route path="details/:game_id" element={<GameDetails />} />
             <Route path="/addGame" element={<NewGamePage />} />
+            <Route path="/cart" element={<Cart />} />
 
         </Routes>
 

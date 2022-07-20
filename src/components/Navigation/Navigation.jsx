@@ -29,10 +29,10 @@ const Navigator = () => {
                                 Log Out
                             </NavDropdown.Item>
                         </NavDropdown>
-                        <Nav.Link href="#deets">Your purchase</Nav.Link>
                         <Nav.Link eventKey={4} href="#memes">
                             About us
                         </Nav.Link>
+                        <Nav.Link href="#deets">Cart</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

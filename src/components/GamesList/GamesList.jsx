@@ -2,20 +2,20 @@ import './GamesList.css'
 import { Col, Row } from 'react-bootstrap'
 import GameCard from '../GameCard/GameCard'
 
-const GamesList = ({ games }) => {
+const GamesList = ({ games, onAdd }) => {
     return (
         <Row>
             {
-                games.map(game => {
-                    return (
-                        <Col md={3} key={game._id}>
-                            <GameCard {...game} />
-                        </Col>
-                    )
-                })
+                games.map((game) => (
+                    <Col md={3} key={game.id}>
+                        <GameCard key={game._id} game={game} onAdd={onAdd} ></GameCard>
+                    </Col>
+                ))
             }
         </Row>
     )
 }
+
+
 
 export default GamesList
