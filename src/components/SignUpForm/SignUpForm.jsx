@@ -29,7 +29,7 @@ const SignUpForm = () => {
         authService
             .signup(signupData)
             .then(({ data }) => {
-                setShowMessage({ show: true, title: `Bienvenid@, ${data.user.username}`, text: 'Te has registrado correctamente' })
+                setShowMessage({ show: true, title: `Welcome, ${data.user.username}`, text: 'You are signup' })
                 navigate('/login')
             })
             .catch(err => console.log(err))

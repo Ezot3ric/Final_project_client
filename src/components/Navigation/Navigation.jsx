@@ -1,8 +1,20 @@
+import { useContext } from 'react'
 import { Nav, Navbar, Container, NavDropdown } from 'react-bootstrap'
 import '../../components/Navigation/Navigation.css'
+import { AuthContext } from '../../contexts/auth.context'
+import { MessageContext } from '../../contexts/userMessage.context'
+import { Link } from 'react-router-dom'
 
 
 const Navigator = () => {
+
+    const { user, logoutUser } = useContext(AuthContext)
+    const { setShowMessage } = useContext(MessageContext)
+
+    const logout = () => {
+        setShowMessage({ show: true, title: 'Good bye!', text: 'Your sesion is closed' })
+        logoutUser()
+    }
 
     return (
 
@@ -14,25 +26,49 @@ const Navigator = () => {
                     <Nav className="me-auto">
                         <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="/games-list">Games</Nav.Link>
-                        <Nav.Link href="/addGame">New Game</Nav.Link>
 
                     </Nav>
                     <Nav>
-                        <NavDropdown title="User" id="collasible-nav-dropdown">
-                            <NavDropdown.Item href="/signup">Sign Up</NavDropdown.Item>
-                            <NavDropdown.Item href="/login">
-                                Log In
-                            </NavDropdown.Item>
+                        {
+                            !user
+                                ?
+                                <>
+                                    <NavDropdown title="User" id="collasible-nav-dropdown">
+                                        <NavDropdown.Item href="/signup">Sign Up</NavDropdown.Item>
+                                        <Link to="/signup">
 
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item href="/">
-                                Log Out
-                            </NavDropdown.Item>
-                        </NavDropdown>
+                                        </Link>
+                                        <NavDropdown.Divider />
+                                        <NavDropdown.Item href="/login">Log In</NavDropdown.Item>
+                                        <Link to="/login">
+
+                                        </Link>
+
+
+
+                                    </NavDropdown>
+
+                                </>
+                                :
+                                <>
+                                    <Link to="/addgame">
+                                        <Nav.Link href="span">Add new game</Nav.Link>
+                                    </Link>
+                                    <Link to="/">
+                                        <Nav.Link as="span">Profile {user.username}</Nav.Link>
+                                    </Link>
+                                    <Nav.Link href="#deets">Cart</Nav.Link>
+
+                                    <Nav.Link as="span" onClick={logout}>Log Out</Nav.Link>
+
+                                </>
+                        }
+
+
                         <Nav.Link eventKey={4} href="#memes">
                             About us
                         </Nav.Link>
-                        <Nav.Link href="#deets">Cart</Nav.Link>
+
                     </Nav>
                 </Navbar.Collapse>
             </Container>

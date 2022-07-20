@@ -20,7 +20,6 @@ const GameForm = () => {
     const handleChange = e => {
         const { value, name } = e.target
         setGameData({ ...gameData, [name]: value })
-        console.log(setGameData)
     }
 
     const handleSubmit = e => {
@@ -29,7 +28,7 @@ const GameForm = () => {
         gameService
             .addGame(gameData)
             .then(() => console.log('yiha!'))
-            .catch(err => console.err(err))
+            .catch(err => console.error(err))
 
     }
 

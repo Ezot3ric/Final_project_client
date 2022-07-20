@@ -1,11 +1,11 @@
 import { useContext, useState } from "react"
 import { Form, Button } from 'react-bootstrap'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom"
 
 import authService from '../../services/auth.services'
 
 import { MessageContext } from './../../contexts/userMessage.context'
-import { authContext } from './../../contexts/auth.context'
+import { AuthContext } from "../../contexts/auth.context"
 
 const LogInForm = () => {
 
@@ -15,7 +15,9 @@ const LogInForm = () => {
     })
 
     const { setShowMessage } = useContext(MessageContext)
+    const { storeToken, authenticateUser } = useContext(AuthContext)
     const navigate = useNavigate()
+
 
     const handleInputChange = e => {
         const { value, name } = e.target
@@ -28,9 +30,12 @@ const LogInForm = () => {
         authService
             .login(loginData)
             .then(({ data }) => {
-
+                storeToken(data.authToken)
+                authenticateUser()
                 setShowMessage({ show: true, title: `Welcome!`, text: `U are login!` })
-                navigate('/')
+                navigate('/games-list')
+
+
             })
             .catch(err => console.log(err))
     }
