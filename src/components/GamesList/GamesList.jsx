@@ -7,8 +7,8 @@ const GamesList = ({ games, onAdd }) => {
         <Row>
             {
                 games.map((game) => (
-                    <Col md={3} key={game.id}>
-                        <GameCard key={game._id} game={game} onAdd={onAdd} ></GameCard>
+                    <Col md={3} key={game._id}>
+                        <GameCard key={game._id} {...game} onAdd={onAdd} ></GameCard>
                     </Col>
                 ))
             }

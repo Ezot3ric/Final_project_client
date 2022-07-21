@@ -28,6 +28,10 @@ class CartService {
         return this.api.post('/addItem', { game_id: itemId })
     }
 
+    removeItem = itemId => {
+        return this.api.post('/removeItem', { game_id: itemId })
+    }
+
 
 }
 

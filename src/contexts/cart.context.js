@@ -6,26 +6,34 @@ const CartContext = createContext()
 function CartProviderWrapper(props) {
 
     const [items, setItems] = useState([])
+    const [shippingPrice, setShippingPrice] = useState(0)
+    const [totalPrice, setTotalPrice] = useState(0)
 
     const getItems = () => {
         cartService
             .getItems()
-            .then(({ data }) => setItems(data.items))
+            .then(({ data }) => {
+                setItems(data.items)
+            })
             .catch(err => console.log(err))
     }
 
     const addItem = (itemId) => {
-
         cartService
             .addItem(itemId)
             .then(({ data }) => setItems({ ...items, data }))
             .catch(err => console.error(err))
     }
 
-    const removeItem = itemId => alert('yay')
+    const removeItem = itemId => {
+        cartService
+            .removeItem(itemId)
+            .then(({ data }) => setItems({ ...items, data }))
+            .catch(err => console.error(err))
+    }
 
     return (
-        <CartContext.Provider value={{ items, getItems, addItem, removeItem }}>
+        <CartContext.Provider value={{ items, shippingPrice, totalPrice, getItems, addItem, removeItem }}>
             {props.children}
         </CartContext.Provider>
     )

@@ -2,10 +2,10 @@ import './Footer.css'
 
 const Footer = () => {
     return (
-        <footer class="text-center footer-style">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
+        <footer className="text-center footer-style">
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-4">
                         <h3>Know us</h3>
                         <p>
                             Legal & Privacy
@@ -20,17 +20,17 @@ const Footer = () => {
 
                         </p>
                     </div>
-                    <div class="col-md-4 ">
+                    <div className="col-md-4 ">
                         <h3>Social media</h3>
-                        <ul class="list-inline">
+                        <ul className="list-inline">
                             <li>
-                                <a target="_blank" href="#" ><img src="./images/facebook.png" class="btn-facebook" alt="Logo-Facebook" /></a>
-                                <a target="_blank" href="#" class="btn-instagram"><img src="./images/instagram.png" class="btn-instagram" alt="Logo-Instagram" /></a>
-                                <a target="_blank" href="#" class="btn-twitter"><img src="./images/twitter.png" class="btn-twitter" alt="Logo-Twitter" /></a>
+                                <a target="_blank" href="#" ><img src="./images/facebook.png" className="btn-facebook" alt="Logo-Facebook" /></a>
+                                <a target="_blank" href="#" className="btn-instagram"><img src="./images/instagram.png" className="btn-instagram" alt="Logo-Instagram" /></a>
+                                <a target="_blank" href="#" className="btn-twitter"><img src="./images/twitter.png" className="btn-twitter" alt="Logo-Twitter" /></a>
                             </li>
                         </ul>
                     </div>
-                    <div class="col-md-4 footer-col">
+                    <div className="col-md-4 footer-col">
                         <h3>About us</h3>
                         <p>The About Us page of your website is an essential source of information for all who want to know more about your business.</p>
                     </div>
