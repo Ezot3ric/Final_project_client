@@ -1,8 +1,13 @@
 import './GameCard.css'
 import { Card, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
+import { CartContext } from './../../contexts/cart.context'
+import { useContext } from 'react'
 
-const GameCard = ({ game, onAdd }) => {
+
+const GameCard = ({ game }) => {
+    const { addItem } = useContext(CartContext)
 
     return (
 
@@ -18,7 +23,7 @@ const GameCard = ({ game, onAdd }) => {
                     </div>
                 </Link>
                 <div className="d-grid mb-6">
-                    <Button onClick={() => onAdd(game)} variant='dark' as='div'>Add to cart</Button>
+                    <Button onClick={() => addItem(game._id)} variant='dark' as='div'>Add to cart</Button>
                 </div>
             </Card.Body>
         </Card>
