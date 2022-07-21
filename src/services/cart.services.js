@@ -24,6 +24,10 @@ class CartService {
         return this.api.get('/getItems')
     }
 
+    addItem = itemId => {
+        return this.api.post('/addItem', { game_id: itemId })
+    }
+
 
 }
 

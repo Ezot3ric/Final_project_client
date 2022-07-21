@@ -4,6 +4,7 @@ import App from './App';
 import { BrowserRouter as Router } from 'react-router-dom'
 import { MessageProviderWrapper } from './contexts/userMessage.context'
 import { AuthProviderWrapper } from './contexts/auth.context'
+import { CartProviderWrapper } from './contexts/cart.context'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
@@ -12,7 +13,9 @@ root.render(
     <Router>
       <MessageProviderWrapper>
         <AuthProviderWrapper>
-          <App />
+          <CartProviderWrapper>
+            <App />
+          </CartProviderWrapper>
         </AuthProviderWrapper>
       </MessageProviderWrapper>
     </Router>

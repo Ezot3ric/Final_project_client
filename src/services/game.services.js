@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-class GameService {
+class GameServices {
 
     constructor() {
 
@@ -45,6 +45,6 @@ class GameService {
     }
 }
 
-const gameService = new GameService()
+const gameServices = new GameServices()
 
-export default gameService
+export default gameServices
