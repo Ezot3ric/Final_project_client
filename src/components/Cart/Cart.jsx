@@ -6,20 +6,14 @@ import { CartContext } from '../../contexts/cart.context'
 
 export default function Cart() {
 
-    const { items, getItems, totalPrice, shippingPrice, addItem, removeItem } = useContext(CartContext)
-
+    const { items, getItems, totalPrice, shippingPrice, addItem, removeItem, itemsPrice } = useContext(CartContext)
+    console.log(totalPrice)
 
     useEffect(() => {
         getItems()
     }, [])
 
-
-    console.log(items)
-
-
-
     return (
-
 
         <>
             <h2>Cart Items</h2>
@@ -34,7 +28,7 @@ export default function Cart() {
                                 <button onClick={() => removeItem(item.product)} className="remove">-</button>
                             </div>
                             <div className='col-2 text-right'>
-                                {/* {product.qty} x {product.price.toFixed(2)}$ */}
+                                {item.product.price}$
                             </div>
                         </div>
                     ))
@@ -45,12 +39,12 @@ export default function Cart() {
                     <hr></hr>
                     <div className="row">
                         <div className="col-2">Items Price</div>
-                        <div className="col-1 text-right">${/*itemsPrice.toFixed(2)*/}</div>
+                        <div className="col-1 text-right">${itemsPrice}</div>
                     </div>
                     <div className="row">
                         <div className="col-2">Shipping Price</div>
                         <div className="col-1 text-right">
-                            ${shippingPrice.toFixed(2)}
+                            ${shippingPrice}
                         </div>
                     </div>
 
@@ -59,7 +53,7 @@ export default function Cart() {
                             <strong>Total Price</strong>
                         </div>
                         <div className="col-1 text-right">
-                            <strong>${totalPrice.toFixed(2)}</strong>
+                            <strong>${totalPrice}</strong>
                         </div>
                     </div>
                     <hr />

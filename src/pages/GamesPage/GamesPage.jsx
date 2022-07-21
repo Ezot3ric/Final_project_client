@@ -58,7 +58,7 @@ const GamesPage = () => {
                 </Col>
 
                 <Col>
-                    <Cart cartItems={cartItems} onAdd={onAdd} onRemove={onRemove}> Cart</Cart>
+                    
                 </Col>
 
             </Row>

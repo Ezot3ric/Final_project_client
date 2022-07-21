@@ -57,7 +57,7 @@ const Navigator = () => {
                                     <Link to="/">
                                         <Nav.Link as="span">Profile {user.username}</Nav.Link>
                                     </Link>
-                                    <Nav.Link href="#deets">Cart</Nav.Link>
+                                    <Nav.Link href="/cart">Cart</Nav.Link>
 
                                     <Nav.Link as="span" onClick={logout}>Log Out</Nav.Link>
 
