@@ -6,6 +6,7 @@ import HomePage from '../pages/HomePage/HomePage'
 import Cart from '../components/Cart/Cart'
 import SignUpPage from '../pages/SignupPage/SignupPage'
 import LogInPage from '../pages/LogInPage/LogInPage'
+import PrivateRoute from './PrivateRoutes'
 
 
 const AppRoutes = () => {
@@ -17,7 +18,11 @@ const AppRoutes = () => {
             <Route path="/login" element={<LogInPage />} />
             <Route path="/games-list" element={<GamesPage />} />
             <Route path="details/:game_id" element={<GameDetails />} />
-            <Route path="/addGame" element={<NewGamePage />} />
+
+            <Route path="/addGame" element={<PrivateRoute />}>
+                <Route path="" element={<NewGamePage />} />
+            </Route>
+
             <Route path="/cart" element={<Cart />} />
 
         </Routes>

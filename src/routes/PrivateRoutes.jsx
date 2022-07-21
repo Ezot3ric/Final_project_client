@@ -1,16 +1,17 @@
 import { useContext } from "react"
 import { AuthContext } from "../contexts/auth.context"
-import { Navigate } from 'react-router-dom'
+import { Navigate, Outlet } from 'react-router-dom'
+import Loader from '../components/Loader/Loader'
 
 function PrivateRoute() {
 
-    const { isLoggedIn, isLoading } = useContext(AuthContext)
+    const { isLoading, user } = useContext(AuthContext)
 
     if (isLoading) {
         return <Loader />
     }
 
-    if (!isLoggedIn) {
+    if (!user) {
         return <Navigate to="/login" />
     }
 
