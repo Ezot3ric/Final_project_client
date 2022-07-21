@@ -3,7 +3,6 @@ import { useEffect } from 'react'
 import { useContext } from 'react'
 import { CartContext } from '../../contexts/cart.context'
 
-
 export default function Cart() {
 
     const { items, getItems, totalPrice, shippingPrice, addItem, removeItem, itemsPrice } = useContext(CartContext)
@@ -65,10 +64,7 @@ export default function Cart() {
                 </>
             )}
 
-
         </>
-
-
 
     )
 }
