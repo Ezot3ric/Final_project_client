@@ -43,31 +43,29 @@ const Navigator = () => {
                                         <Link to="/login">
 
                                         </Link>
-
-
-
                                     </NavDropdown>
+
+                                    <Nav.Link eventKey={4} href="#memes">
+                                        About us
+                                    </Nav.Link>
 
                                 </>
                                 :
                                 <>
-                                    <Link to="/addgame">
-                                        <Nav.Link href="span">Add new game</Nav.Link>
-                                    </Link>
-                                    <Link to="/">
-                                        <Nav.Link as="span">Profile {user.username}</Nav.Link>
-                                    </Link>
-                                    <Nav.Link href="#deets">Cart</Nav.Link>
 
-                                    <Nav.Link as="span" onClick={logout}>Log Out</Nav.Link>
+                                    <Nav.Link href="/addgame">Add new game</Nav.Link>
+
+
+                                    <Nav.Link as="span">Profile {user.username}</Nav.Link>
+
+                                    <Nav.Link href="/cart">Cart</Nav.Link>
+
+                                    <Nav.Link href="/games-list" onClick={logout}>Log Out</Nav.Link>
 
                                 </>
                         }
 
 
-                        <Nav.Link eventKey={4} href="#memes">
-                            About us
-                        </Nav.Link>
 
                     </Nav>
                 </Navbar.Collapse>

@@ -3,7 +3,7 @@ import './GamesPage.css'
 import gameService from '../../services/game.services'
 import GamesList from './../../components/GamesList/GamesList'
 import { Col, Container, Row } from 'react-bootstrap'
-import Cart from '../../components/Cart/Cart'
+
 
 const GamesPage = () => {
 
@@ -57,9 +57,6 @@ const GamesPage = () => {
                     {<GamesList games={games} onAdd={onAdd} />}
                 </Col>
 
-                <Col>
-                    <Cart cartItems={cartItems} onAdd={onAdd} onRemove={onRemove}> Cart</Cart>
-                </Col>
 
             </Row>
         </Container>
