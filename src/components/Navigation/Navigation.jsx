@@ -52,24 +52,11 @@ const Navigator = () => {
                                 </>
                                 :
                                 <>
-<<<<<<< HEAD
-=======
-                                    <Nav.Link as="span">
-                                        <Link to="/addgame">Add new game</Link>
-                                    </Nav.Link>
->>>>>>> 1ecc6e36d40f5b838a72b035f014c8922ed72246
 
                                     <Nav.Link as="span">
                                         <Link to="span">Profile {user.username}</Link>
                                     </Nav.Link>
 
-<<<<<<< HEAD
-                                    <Nav.Link as="span">Profile {user.username}</Nav.Link>
-
-                                    <Nav.Link href="/cart">Cart</Nav.Link>
-
-                                    <Nav.Link href="/games-list" onClick={logout}>Log Out</Nav.Link>
-=======
                                     <Nav.Link as="span">
                                         <Link to="/cart">Cart</Link>
                                     </Nav.Link>
@@ -77,7 +64,6 @@ const Navigator = () => {
                                     <Nav.Link as="span">
                                         <Link to="/games-list" onClick={logout}>Log Out</Link>
                                     </Nav.Link>
->>>>>>> 1ecc6e36d40f5b838a72b035f014c8922ed72246
 
                                 </>
                         }
