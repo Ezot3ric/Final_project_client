@@ -52,9 +52,12 @@ const Navigator = () => {
                                 </>
                                 :
                                 <>
+<<<<<<< HEAD
                                     <Nav.Link as="span">
                                         <Link to="/addgame">Add new game</Link>
                                     </Nav.Link>
+=======
+>>>>>>> 2cacca4a4ab4de7257537e1ccc15fd196ab18547
 
                                     <Nav.Link as="span">
                                         <Link to="span">Profile {user.username}</Link>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useContext, useEffect } from 'react'
 import { CartContext } from '../../contexts/cart.context'
+import { useEffect } from 'react'
 
 export default function Cart() {
 

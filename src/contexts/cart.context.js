@@ -10,9 +10,9 @@ function CartProviderWrapper(props) {
     const [shippingPrice, setShippingPrice] = useState(0)
     const [totalPrice, setTotalPrice] = useState(0)
 
-    // useEffect(() => {
-    //     getItems()
-    // }, [])
+    useEffect(() => {
+        getItems()
+    }, [])
 
     useEffect(() => {
 

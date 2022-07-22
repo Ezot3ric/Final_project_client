@@ -5,6 +5,7 @@ import { CartContext } from './../../contexts/cart.context'
 import { useContext } from 'react'
 
 
+
 const GameCard = ({ name, imgs, price, _id }) => {
 
     const { addItem } = useContext(CartContext)
