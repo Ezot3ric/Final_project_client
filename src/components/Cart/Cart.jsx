@@ -6,7 +6,6 @@ import { CartContext } from '../../contexts/cart.context'
 export default function Cart() {
 
     const { items, getItems, totalPrice, shippingPrice, addItem, removeItem, itemsPrice } = useContext(CartContext)
-    console.log(totalPrice)
 
     useEffect(() => {
         getItems()

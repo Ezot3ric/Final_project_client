@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react'
+import { createContext, useState, useEffect } from 'react'
 import cartService from '../services/cart.services'
 
 const CartContext = createContext()
@@ -11,16 +11,21 @@ function CartProviderWrapper(props) {
     const [totalPrice, setTotalPrice] = useState(0)
 
 
+    useEffect(() => {
+
+        const itemsPriceSum = items.reduce((acc, curr) => acc + curr.product.price, 0)
+        setItemsPrice(itemsPriceSum)
+        setShippingPrice(itemsPrice > 200 ? 0 : 5)
+        setTotalPrice(itemsPrice + shippingPrice)
+
+    }, [items])
+
 
     const getItems = () => {
         cartService
             .getItems()
             .then(({ data }) => {
                 setItems(data.items)
-                setItemsPrice(data.items.reduce((acc, curr) => acc + curr.product.price, 0))
-                setShippingPrice(itemsPrice > 200 ? 0 : 5)
-                setTotalPrice(itemsPrice + shippingPrice)
-
 
             })
             .catch(err => console.log(err))
@@ -29,14 +34,14 @@ function CartProviderWrapper(props) {
     const addItem = (itemId) => {
         cartService
             .addItem(itemId)
-            .then(({ data }) => setItems({ ...items, data }))
+            .then(({ data }) => setItems(data.items))
             .catch(err => console.error(err))
     }
 
     const removeItem = itemId => {
         cartService
             .removeItem(itemId)
-            .then(({ data }) => setItems({ ...items, data }))
+            .then(({ data }) => setItems(data.items))
             .catch(err => console.error(err))
     }
 
