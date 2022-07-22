@@ -25,11 +25,11 @@ class CartService {
     }
 
     addItem = itemId => {
-        return this.api.post('/addItem', { game_id: itemId })
+        return this.api.put('/addItem', { game_id: itemId })
     }
 
     removeItem = itemId => {
-        return this.api.post('/removeItem', { game_id: itemId })
+        return this.api.put('/removeItem', { game_id: itemId })
     }
 
 

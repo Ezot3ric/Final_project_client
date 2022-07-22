@@ -18,7 +18,6 @@ const LogInForm = () => {
     const { storeToken, authenticateUser } = useContext(AuthContext)
     const navigate = useNavigate()
 
-
     const handleInputChange = e => {
         const { value, name } = e.target
         setLoginData({ ...loginData, [name]: value })
@@ -34,8 +33,6 @@ const LogInForm = () => {
                 authenticateUser()
                 setShowMessage({ show: true, title: `Welcome!`, text: `U are login!` })
                 navigate('/games-list')
-
-
             })
             .catch(err => console.log(err))
     }
@@ -57,11 +54,9 @@ const LogInForm = () => {
                     <Form.Control type="password" value={password} onChange={handleInputChange} name="password" />
                 </Form.Group>
 
-
                 <div className="d-grid">
                     <Button variant="dark" type="submit">Log In</Button>
                 </div>
-
             </Form>
         </>
     )

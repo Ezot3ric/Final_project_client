@@ -36,12 +36,12 @@ class GameServices {
 
 
     updateGame(game_id, gameData) {
-        return this.api.post(`/updateGame/${game_id}`, gameData)
+        return this.api.put(`/updateGame/${game_id}`, gameData)
     }
 
 
     deleteGame(game_id) {
-        return this.api.post(`/deleteGame/${game_id}`)
+        return this.api.delete(`/deleteGame/${game_id}`)
     }
 }
 

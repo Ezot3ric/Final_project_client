@@ -6,6 +6,7 @@ import { useContext } from 'react'
 
 
 const GameCard = ({ name, imgs, price, _id }) => {
+
     const { addItem } = useContext(CartContext)
     const { removeItem } = useContext(CartContext)
 

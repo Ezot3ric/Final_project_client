@@ -1,16 +1,10 @@
 import React from 'react'
-import { useEffect } from 'react'
 import { useContext } from 'react'
 import { CartContext } from '../../contexts/cart.context'
 
 export default function Cart() {
 
-    const { items, getItems, totalPrice, shippingPrice, addItem, removeItem, itemsPrice } = useContext(CartContext)
-    console.log(totalPrice)
-
-    useEffect(() => {
-        getItems()
-    }, [])
+    const { items, totalPrice, shippingPrice, addItem, removeItem, itemsPrice } = useContext(CartContext)
 
     return (
 
@@ -57,9 +51,7 @@ export default function Cart() {
                     </div>
                     <hr />
                     <div className="row">
-                        <button onClick={() => alert('Implement Checkout!')}>
-                            Checkout
-                        </button>
+                        <button onClick={() => alert('Implement Checkout!')}>Checkout</button>
                     </div>
                 </>
             )}

@@ -9,8 +9,6 @@ const GamesPage = () => {
 
     const [games, setGames] = useState([])
 
-    const [cartItems, setCartItems] = useState([])
-
     useEffect(() => {
         loadGames()
     }, [])
@@ -22,42 +20,12 @@ const GamesPage = () => {
             .catch(err => console.error(err))
     }
 
-    const onAdd = (game) => {
-        const exist = cartItems.find((x) => x._id === game._id);
-        if (exist) {
-            setCartItems(
-                cartItems.map((x) =>
-                    x._id === game._id ? { ...exist, qty: exist.qty + 1 } : x
-                )
-            )
-        } else {
-            setCartItems([...cartItems, { ...game, qty: 1 }])
-        }
-    }
-
-    const onRemove = (game) => {
-        const exist = cartItems.find((x) => x._id === game._id);
-        if (exist.qty === 1) {
-            setCartItems(cartItems.filter((x) => x._id !== game._id));
-        } else {
-            setCartItems(
-                cartItems.map((x) =>
-                    x._id === game._id ? { ...exist, qty: exist.qty - 1 } : x
-                )
-            );
-        }
-    };
-
-
     return (
         <Container>
             <Row>
-
                 <Col>
-                    {<GamesList games={games} onAdd={onAdd} />}
+                    <GamesList games={games} />
                 </Col>
-
-
             </Row>
         </Container>
 

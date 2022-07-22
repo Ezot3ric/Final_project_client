@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react'
+import { createContext, useState, useEffect } from 'react'
 import cartService from '../services/cart.services'
 
 const CartContext = createContext()
@@ -10,33 +10,47 @@ function CartProviderWrapper(props) {
     const [shippingPrice, setShippingPrice] = useState(0)
     const [totalPrice, setTotalPrice] = useState(0)
 
+    useEffect(() => {
+        getItems()
+    }, [])
+
+    useEffect(() => {
+        setItemsPrice(items.reduce((acc, curr) => acc + curr.product.price, 0))
+        setShippingPrice(itemsPrice > 200 ? 0 : 5)
+        setTotalPrice(itemsPrice + shippingPrice)
+    }, [items])
+
 
 
     const getItems = () => {
         cartService
             .getItems()
-            .then(({ data }) => {
-                setItems(data.items)
-                setItemsPrice(data.items.reduce((acc, curr) => acc + curr.product.price, 0))
-                setShippingPrice(itemsPrice > 200 ? 0 : 5)
-                setTotalPrice(itemsPrice + shippingPrice)
-
-
-            })
+            .then(({ data }) => setItems(data.items))
             .catch(err => console.log(err))
     }
 
     const addItem = (itemId) => {
+
+        /* const exist = items.find((el) => el.product._id = itemId)
+         if (exist) {
+             setItems(
+                 items.map((el) => el.product._id === itemId ? { ...exist, qty: exist.qty + 1 } : el
+                 )
+             )
+         } else {
+             setItems([...items, { ...itemId, qty: 1 }])
+         }*/
+
         cartService
             .addItem(itemId)
-            .then(({ data }) => setItems({ ...items, data }))
+            .then(({ data }) => setItems(...items, data.items))
             .catch(err => console.error(err))
     }
 
     const removeItem = itemId => {
         cartService
             .removeItem(itemId)
-            .then(({ data }) => setItems({ ...items, data }))
+            .then(({ data }) => setItems(data.items))
             .catch(err => console.error(err))
     }
 
