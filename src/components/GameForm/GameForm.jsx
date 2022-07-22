@@ -1,10 +1,16 @@
 import { Form, Button, Row, Col } from 'react-bootstrap'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { useNavigate } from "react-router-dom"
+
 import gameService from '../../services/game.services'
+
+import { MessageContext } from './../../contexts/userMessage.context'
+
 
 const GameForm = () => {
 
     const [gameData, setGameData] = useState({
+
         name: '',
         release: '',
         imgs: '',
@@ -16,6 +22,9 @@ const GameForm = () => {
         studio: '',
     })
 
+    const { setShowMessage } = useContext(MessageContext)
+    const navigate = useNavigate()
+
     const handleChange = e => {
         const { value, name } = e.target
         setGameData({ ...gameData, [name]: value })
@@ -26,9 +35,11 @@ const GameForm = () => {
 
         gameService
             .addGame(gameData)
-            .then(() => console.log('yiha!'))
-            .catch(err => console.error(err))
-
+            .then(() => {
+                setShowMessage({ show: true, title: `Game registrer!`, text: `Last game add` })
+                navigate('/games-list')
+            })
+            .catch(err => console.log(err))
     }
 
     const { name, release, imgs, description, rating, platforms, genre, price, studio } = gameData

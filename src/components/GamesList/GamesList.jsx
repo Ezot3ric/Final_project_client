@@ -18,6 +18,4 @@ const GamesList = ({ games }) => {
     )
 }
 
-
-
 export default GamesList

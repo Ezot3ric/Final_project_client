@@ -1,5 +1,5 @@
 import React from 'react'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { CartContext } from '../../contexts/cart.context'
 
 export default function Cart() {
@@ -64,3 +64,12 @@ export default function Cart() {
 
     )
 }
+
+
+
+
+
+
+
+
+
