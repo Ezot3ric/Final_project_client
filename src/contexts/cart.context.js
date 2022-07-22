@@ -10,6 +10,16 @@ function CartProviderWrapper(props) {
     const [shippingPrice, setShippingPrice] = useState(0)
     const [totalPrice, setTotalPrice] = useState(0)
 
+    useEffect(() => {
+        getItems()
+    }, [])
+
+    useEffect(() => {
+        setItemsPrice(items.reduce((acc, curr) => acc + curr.product.price, 0))
+        setShippingPrice(itemsPrice > 200 ? 0 : 5)
+        setTotalPrice(itemsPrice + shippingPrice)
+    }, [items])
+
 
     useEffect(() => {
 
@@ -32,6 +42,17 @@ function CartProviderWrapper(props) {
     }
 
     const addItem = (itemId) => {
+
+        /* const exist = items.find((el) => el.product._id = itemId)
+         if (exist) {
+             setItems(
+                 items.map((el) => el.product._id === itemId ? { ...exist, qty: exist.qty + 1 } : el
+                 )
+             )
+         } else {
+             setItems([...items, { ...itemId, qty: 1 }])
+         }*/
+
         cartService
             .addItem(itemId)
             .then(({ data }) => setItems(data.items))

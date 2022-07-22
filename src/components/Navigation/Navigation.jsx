@@ -24,8 +24,12 @@ const Navigator = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="/">Home</Nav.Link>
-                        <Nav.Link href="/games-list">Games</Nav.Link>
+                        <Nav.Link as="span">
+                            <Link to="/">Home</Link>
+                        </Nav.Link>
+                        <Nav.Link as="span">
+                            <Link to="/games-list">Games</Link>
+                        </Nav.Link>
 
                     </Nav>
                     <Nav>
@@ -34,38 +38,49 @@ const Navigator = () => {
                                 ?
                                 <>
                                     <NavDropdown title="User" id="collasible-nav-dropdown">
-                                        <NavDropdown.Item href="/signup">Sign Up</NavDropdown.Item>
                                         <Link to="/signup">
-
+                                            <NavDropdown.Item href="/signup">Sign Up</NavDropdown.Item>
                                         </Link>
                                         <NavDropdown.Divider />
-                                        <NavDropdown.Item href="/login">Log In</NavDropdown.Item>
                                         <Link to="/login">
-
+                                            <NavDropdown.Item href="/login">Log In</NavDropdown.Item>
                                         </Link>
                                     </NavDropdown>
-
-                                    <Nav.Link eventKey={4} href="#memes">
-                                        About us
+                                    <Nav.Link as="span">
+                                        <Link to="/">About us</Link>
                                     </Nav.Link>
-
                                 </>
                                 :
                                 <>
+<<<<<<< HEAD
+=======
+                                    <Nav.Link as="span">
+                                        <Link to="/addgame">Add new game</Link>
+                                    </Nav.Link>
+>>>>>>> 1ecc6e36d40f5b838a72b035f014c8922ed72246
 
-                                    <Nav.Link href="/addgame">Add new game</Nav.Link>
+                                    <Nav.Link as="span">
+                                        <Link to="span">Profile {user.username}</Link>
+                                    </Nav.Link>
 
+<<<<<<< HEAD
                                     <Nav.Link as="span">Profile {user.username}</Nav.Link>
 
                                     <Nav.Link href="/cart">Cart</Nav.Link>
 
                                     <Nav.Link href="/games-list" onClick={logout}>Log Out</Nav.Link>
+=======
+                                    <Nav.Link as="span">
+                                        <Link to="/cart">Cart</Link>
+                                    </Nav.Link>
+
+                                    <Nav.Link as="span">
+                                        <Link to="/games-list" onClick={logout}>Log Out</Link>
+                                    </Nav.Link>
+>>>>>>> 1ecc6e36d40f5b838a72b035f014c8922ed72246
 
                                 </>
                         }
-
-
-
                     </Nav>
                 </Navbar.Collapse>
             </Container>

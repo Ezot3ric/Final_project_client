@@ -1,5 +1,4 @@
 import React from 'react'
-import { useEffect } from 'react'
 import { useContext } from 'react'
 import { CartContext } from '../../contexts/cart.context'
 
@@ -56,9 +55,7 @@ export default function Cart() {
                     </div>
                     <hr />
                     <div className="row">
-                        <button onClick={() => alert('Implement Checkout!')}>
-                            Checkout
-                        </button>
+                        <button onClick={() => alert('Implement Checkout!')}>Checkout</button>
                     </div>
                 </>
             )}
