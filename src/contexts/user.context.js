@@ -5,13 +5,13 @@ const UserContext = createContext()
 
 function UserProviderWrapper(props) {
 
-    const [showUser, setShowUser] = useState()
+    const [user, setUser] = useState()
 
 
     const showInfo = () => {
         userServices
             .getUser()
-            .then(({ data }) => setShowUser(data.user))
+            .then(({ data }) => setUser(data.user))
             .catch(err => console.log(err))
     }
 
