@@ -3,12 +3,12 @@
 .footer-style {
     padding-top: 50px;
     background-color: #131a21;
+
 }
-
-
 
 footer {
     color: white;
+    position: fixed;
 }
 
 footer h3 {

@@ -1,12 +1,10 @@
 import React from 'react'
+import MyProfileForm from '../../components/MyProfileForm/MyProfileEditForm'
 
 export default function MyProfilePage() {
 
-
-
-
-  
   return (
-    <div>hola soy la pagina de mi perfil</div>
+
+    <MyProfileForm />
   )
 }

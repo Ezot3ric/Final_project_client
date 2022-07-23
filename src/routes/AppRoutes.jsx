@@ -19,9 +19,16 @@ const AppRoutes = () => {
             <Route path="/login" element={<LogInPage />} />
             <Route path="/games-list" element={<GamesPage />} />
             <Route path="/details/:game_id" element={<GameDetails />} />
-            <Route path="/my-profile" element={<MyProfilePage />} />
+
+
             <Route path="/addGame" element={<PrivateRoute />}>
                 <Route path="" element={<NewGamePage />} />
+
+            </Route>
+
+            <Route path="/my-profile/edit" element={<PrivateRoute />}>
+                <Route path="" element={<MyProfilePage />} />
+
             </Route>
 
             <Route path="/cart" element={<Cart />} />

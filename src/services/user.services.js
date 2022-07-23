@@ -10,7 +10,7 @@ class UserServices {
 
         this.api.interceptors.request.use((config) => {
 
-            const storedToken = localStorage.getItem('authToke')
+            const storedToken = localStorage.getItem('authToken')
 
             if (storedToken) {
                 config.headers = { Authorization: `Bearer ${storedToken}` }
@@ -25,10 +25,11 @@ class UserServices {
         return this.api.get(`/profile/${user_id}`)
     }
 
-    editUser() {
+    editUser(user_id) {
         return this.api.put(`/profile/edit/${user_id}`)
     }
 }
 
-const userServices = new UserServices
+const userServices = new UserServices()
+
 export default userServices

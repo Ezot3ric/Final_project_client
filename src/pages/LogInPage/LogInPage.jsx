@@ -1,7 +1,6 @@
 import { Container } from 'mdbreact'
 import LogInForm from '../../components/LogInForm/LogInForm'
 
-
 const LogInPage = () => {
 
     return (
@@ -14,6 +13,5 @@ const LogInPage = () => {
         </>
     )
 }
-
 
 export default LogInPage
