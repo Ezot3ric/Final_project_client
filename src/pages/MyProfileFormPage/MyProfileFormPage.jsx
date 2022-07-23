@@ -1,7 +1,7 @@
 import { Container } from 'react-bootstrap'
 import MyProfileForm from '../../components/MyProfileForm/MyProfileForm'
 
-const NewGamePage = () => {
+const MyProfile = () => {
 
     return (
 
@@ -18,4 +18,4 @@ const NewGamePage = () => {
     )
 }
 
-export default NewGamePage
+export default MyProfile
