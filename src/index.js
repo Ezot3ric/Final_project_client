@@ -8,6 +8,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { MessageProviderWrapper } from './contexts/userMessage.context'
 import { AuthProviderWrapper } from './contexts/auth.context'
 import { CartProviderWrapper } from './contexts/cart.context'
+import { FavoritesProviderWrapper } from './contexts/favorites.context';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
@@ -19,7 +20,9 @@ root.render(
       <MessageProviderWrapper>
         <AuthProviderWrapper>
           <CartProviderWrapper>
-            <App />
+            <FavoritesProviderWrapper>
+              <App />
+            </FavoritesProviderWrapper>
           </CartProviderWrapper>
         </AuthProviderWrapper>
       </MessageProviderWrapper>

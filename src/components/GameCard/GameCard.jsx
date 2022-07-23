@@ -2,12 +2,15 @@ import './GameCard.css'
 import { Card, Button, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { CartContext } from './../../contexts/cart.context'
+import { FavoritesContext } from './../../contexts/favorites.context'
 import { useContext } from 'react'
 
 const GameCard = ({ name, imgs, price, _id }) => {
 
     const { addItem } = useContext(CartContext)
     const { removeItem } = useContext(CartContext)
+    const { addToFavorites } = useContext(FavoritesContext)
+    const { removeFromFavorites } = useContext(FavoritesContext)
 
     return (
         <Row>
@@ -25,7 +28,9 @@ const GameCard = ({ name, imgs, price, _id }) => {
 
                     <div className="d-grid mb-6">
                         <Button onClick={() => addItem(_id)} variant='dark' as='div'>Add to cart</Button>
-                        <Button onClick={() => removeItem(_id)} variant='dark' as='div'>Remove Item cart</Button>
+                        <Button onClick={() => removeItem(_id)} variant='dark' as='div'>Remove Item</Button>
+                        <Button onClick={() => addToFavorites(_id)} variant='dark' as='div'>Add to wishlist</Button>
+                        <Button onClick={() => removeFromFavorites(_id)} variant='dark' as='div'>Remove from wishlist</Button>
                     </div>
                 </Card.Body>
             </Card>

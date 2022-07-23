@@ -1,6 +1,10 @@
 import React from 'react'
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import FavoritesCard from './../FavoritesCard/FavoritesCard'
+
+
+
 export default function UserProfile({ user }) {
 
     return (
@@ -18,10 +22,14 @@ export default function UserProfile({ user }) {
                             </div>
                         </Link>
                     </Col>
-                    <Col md="4" span="4">
-                        <h3>Wishlist</h3>
-                        <p>Aquí van a estar los juegos que deseas comprar(favoritos)</p>
-                    </Col>
+                    {
+                        user.favorites?.map((favorite) => (
+                            <Col md="4" span="4" key={favorite._id}>
+                                <FavoritesCard {...favorite} />
+                            </Col>
+                        ))
+                    }
+
                 </Row>
             </Container>
         </>

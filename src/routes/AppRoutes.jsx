@@ -8,6 +8,7 @@ import SignUpPage from '../pages/SignupPage/SignupPage'
 import LogInPage from '../pages/LogInPage/LogInPage'
 import PrivateRoute from './PrivateRoutes'
 import MyProfilePage from '../pages/MyProfilePage/MyProfilePage'
+import MyProfileFormPage from '../pages/MyProfileFormPage/MyProfileFormPage'
 import MyProfileForm from '../components/MyProfileForm/MyProfileForm'
 
 
@@ -26,13 +27,16 @@ const AppRoutes = () => {
                 <Route path="" element={<NewGamePage />} />
 
             </Route>
-
             <Route path="/my-profile" element={<PrivateRoute />}>
                 <Route path="" element={<MyProfilePage />} />
             </Route>
 
             <Route path="/my-profile/edit" element={<PrivateRoute />}>
                 <Route path="" element={<MyProfileForm />} />
+
+            </Route>
+            <Route path="/my-profile/edit" element={<PrivateRoute />}>
+                <Route path="" element={<MyProfileFormPage />} />
 
             </Route>
 

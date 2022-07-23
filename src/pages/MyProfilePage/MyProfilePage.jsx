@@ -17,8 +17,8 @@ export default function MyProfilePage() {
     userServices
       .getUser()
       .then(({ data }) => {
-        const { name, username, avatar, email, _id } = data
-        setUser({ name, username, avatar, email, _id })
+        const { name, username, avatar, email, favorites, _id } = data
+        setUser({ name, username, avatar, email, favorites, _id })
       })
       .catch(err => console.log(err))
   }
