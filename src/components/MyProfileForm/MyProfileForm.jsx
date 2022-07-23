@@ -1,7 +1,11 @@
 import { useState } from "react"
 import { Form, Button, Container } from 'react-bootstrap'
+import { useEffect, useContext } from "react"
+import { useNavigate } from "react-router-dom"
+import { MessageContext } from "../../contexts/userMessage.context"
+
+import uploadServices from './../../services/upload.services'
 import userServices from '../../services/user.services'
-import { useEffect } from "react"
 
 const MyProfileForm = () => {
 
@@ -9,25 +13,12 @@ const MyProfileForm = () => {
         name: '',
         username: '',
         email: '',
-        avatar: '',
+        avatar: ''
+
     })
 
-    useEffect(() => {
-
-        userServices
-
-            .editUser()
-            .then(response => {
-                setMyProfile({
-                    name: response.data.name,
-                    username: response.data.username,
-                    email: response.data.email,
-                    avatar: response.data.avatar
-
-                })
-            })
-            .catch(err => console.log(err))
-    }, [])
+    const { setShowMessage } = useContext(MessageContext)
+    const navigate = useNavigate()
 
     const handleChange = e => {
         const { value, name } = e.target
@@ -36,9 +27,29 @@ const MyProfileForm = () => {
 
     const handleSubmit = e => {
         e.preventDefault()
+
+        userServices
+            .editUser(myProfile)
+            .then(() => {
+                setShowMessage({ show: true, title: `User edit!` })
+                navigate('/my-profile')
+            })
+
+            .catch(err => console.log(err))
     }
 
-    const { name, username, email, avatar } = myProfile
+    const handleFileInput = e => {
+
+        const formData = new FormData()
+        formData.append('imageData', e.target.files[0])
+
+        uploadServices
+            .uploadImage(myProfile)
+            .then(({ data }) => setMyProfile({ ...myProfile, avatar: data.cloudinary_url }))
+            .catch(err => console.log(err))
+    }
+
+    const { name, username, email } = myProfile
 
     return (
         <>
@@ -62,7 +73,7 @@ const MyProfileForm = () => {
 
                     <Form.Group className="mb-3" controlId="avatar">
                         <Form.Label>Avatar</Form.Label>
-                        <Form.Control type="text" value={avatar} name="avatar" />
+                        <Form.Control type="file" onChange={handleFileInput} name="avatar" />
                     </Form.Group>
 
                     <div className="d-grid">

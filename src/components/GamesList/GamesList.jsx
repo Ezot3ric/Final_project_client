@@ -9,6 +9,7 @@ const GamesList = ({ games }) => {
     const [gamesList, setGameList] = useState(games)
     const [gamesData, setGamesData] = useState(games)
 
+    //FILTER GAMES
     const filterGames = letter => {
 
         if (letter === 'All') {
@@ -19,6 +20,7 @@ const GamesList = ({ games }) => {
             setGameList(filteredGames)
         }
     }
+
     return (
         <Container>
             <Row>
@@ -29,6 +31,7 @@ const GamesList = ({ games }) => {
                         <Col md={3} key={game._id}>
                             <GameCard {...game} />
                         </Col>
+
                     ))
                 }
             </Row>

@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { Nav, Navbar, Container, NavDropdown } from 'react-bootstrap'
-import '../../components/Navigation/Navigation.css'
+
 import { AuthContext } from '../../contexts/auth.context'
 import { MessageContext } from '../../contexts/userMessage.context'
 import { Link } from 'react-router-dom'
@@ -57,8 +57,7 @@ const Navigator = () => {
                                     </Nav.Link>
 
                                     <Nav.Link as="span">
-                                        <Link to="/my-profile/edit">Profile {user.username}</Link>
-                                        <Link to="/my-profile">My Profile</Link>
+                                        <Link to="/my-profile">Profile {user.username}</Link>
                                     </Nav.Link>
 
                                     <Nav.Link as="span">

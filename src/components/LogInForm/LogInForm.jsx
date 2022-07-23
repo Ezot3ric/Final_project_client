@@ -27,6 +27,7 @@ const LogInForm = () => {
         e.preventDefault()
 
         authService
+
             .login(loginData)
             .then(({ data }) => {
                 storeToken(data.authToken)

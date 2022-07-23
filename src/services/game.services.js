@@ -40,8 +40,8 @@ class GameServices {
     }
 
 
-    deleteGame(game_id) {
-        return this.api.delete(`/deleteGame/${game_id}`)
+    deleteGame = itemId => {
+        return this.api.put('/deleteGame', { game_id: itemId })
     }
 }
 
