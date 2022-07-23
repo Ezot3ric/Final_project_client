@@ -1,13 +1,4 @@
 import React from 'react'
-<<<<<<< HEAD
-import MyProfileForm from '../../components/MyProfileForm/MyProfileEditForm'
-
-export default function MyProfilePage() {
-
-  return (
-
-    <MyProfileForm />
-=======
 import { useState } from 'react'
 import userServices from '../../services/user.services'
 import UserProfile from '../../components/UserProfile/UserProfile'
@@ -26,8 +17,8 @@ export default function MyProfilePage() {
     userServices
       .getUser()
       .then(({ data }) => {
-        const { name, username, avatar, email, _id } = data
-        setUser({ name, username, avatar, email, _id })
+        const { name, username, avatar, email, favorites, _id } = data
+        setUser({ name, username, avatar, email, favorites, _id })
       })
       .catch(err => console.log(err))
   }
@@ -41,6 +32,5 @@ export default function MyProfilePage() {
       </Row>
     </Container>
 
->>>>>>> b949dc0d7870f044b9f844d7ba39017edc535734
   )
 }
