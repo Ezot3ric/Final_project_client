@@ -28,6 +28,11 @@ class UserServices {
     editUser(user_id) {
         return this.api.put(`/profile/edit/${user_id}`)
     }
+
+    deleteUser(user_id) {
+        return this.api.delete(`/deleteGame/${user_id}`)
+    }
+
 }
 
 const userServices = new UserServices()

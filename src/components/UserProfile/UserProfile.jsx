@@ -18,7 +18,7 @@ export default function UserProfile({ user }) {
                         <p>E-mail: {user.email}</p>
                         <Link to={`/my-profile/edit`}>
                             <div className="d-grid mb-6">
-                                <Button variant='dark' as='div'>Edit Profile</Button>
+                                <Button variant='dark' href="my-profile/edit" as='div'>Edit Profile</Button>
                             </div>
                         </Link>
                     </Col>

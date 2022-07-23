@@ -1,9 +1,21 @@
-import React from 'react'
-import MyProfileForm from '../../components/MyProfileForm/MyProfileEditForm'
+import { Container } from 'react-bootstrap'
+import MyProfileForm from '../../components/MyProfileForm/MyProfileForm'
 
+const MyProfileFormPage = () => {
 
-export default function MyProfileFormPage() {
     return (
-        <MyProfileForm />
+
+        <Container>
+
+            <h1>Edit user profile</h1>
+
+            <hr />
+
+            <MyProfileForm />
+
+        </Container>
+
     )
 }
+
+export default MyProfileFormPage

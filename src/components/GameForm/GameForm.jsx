@@ -1,11 +1,10 @@
 import { Form, Button, Row, Col } from 'react-bootstrap'
 import { useState, useContext } from 'react'
 import { useNavigate } from "react-router-dom"
-
-import gameService from '../../services/game.services'
-
 import { MessageContext } from './../../contexts/userMessage.context'
 
+import gameService from '../../services/game.services'
+import uploadServices from './../../services/upload.services'
 
 const GameForm = () => {
 
@@ -21,6 +20,8 @@ const GameForm = () => {
         price: '',
         studio: '',
     })
+
+    const [isLoading, setIsLoading] = useState(false)
 
     const { setShowMessage } = useContext(MessageContext)
     const navigate = useNavigate()
@@ -42,6 +43,21 @@ const GameForm = () => {
             .catch(err => console.log(err))
     }
 
+    const handleFileInput = e => {
+
+        setIsLoading(true)
+
+        const formData = new FormData()
+        formData.append('imageData', e.target.files[0])
+
+        uploadServices
+            .uploadImage(formData)
+            .then(({ data }) => {
+                setIsLoading(false)
+                setGameData({ ...gameData, imgs: data.cloudinary_url })
+                    .catch(err => console.log(err))
+            })
+    }
     const { name, release, imgs, description, rating, platforms, genre, price, studio } = gameData
 
     return (
@@ -56,9 +72,9 @@ const GameForm = () => {
                 <Form.Control type="text" value={release} onChange={handleChange} name="release" />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="imgs">
-                <Form.Label>Imagen</Form.Label>
-                <Form.Control type="text" value={imgs} onChange={handleChange} name="imgs" />
+            <Form.Group className="mb-3" controlId="avatar">
+                <Form.Label>Image</Form.Label>
+                <Form.Control type="file" onChange={handleFileInput} name="imgs" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="description">
@@ -100,7 +116,7 @@ const GameForm = () => {
             </Form.Group>
 
             <div className="d-grid">
-                <Button variant="dark" type="submit">Register new game</Button>
+                <Button variant="dark" type="submit" disabled={isLoading}>{isLoading ? 'One moment please' : 'Register new game'}</Button>
             </div>
 
         </Form>

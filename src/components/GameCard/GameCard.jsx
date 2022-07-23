@@ -5,8 +5,6 @@ import { CartContext } from './../../contexts/cart.context'
 import { FavoritesContext } from './../../contexts/favorites.context'
 import { useContext } from 'react'
 
-
-
 const GameCard = ({ name, imgs, price, _id }) => {
 
     const { addItem } = useContext(CartContext)
@@ -27,6 +25,7 @@ const GameCard = ({ name, imgs, price, _id }) => {
                             <Button variant='dark' as='div'>More details</Button>
                         </div>
                     </Link>
+
                     <div className="d-grid mb-6">
                         <Button onClick={() => addItem(_id)} variant='dark' as='div'>Add to cart</Button>
                         <Button onClick={() => removeItem(_id)} variant='dark' as='div'>Remove Item</Button>
