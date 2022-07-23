@@ -29,17 +29,6 @@ const GamesPage = () => {
             </Row>
         </Container>
 
-
-
-
-
-
-
-
-
-
-
-
     )
 }
 

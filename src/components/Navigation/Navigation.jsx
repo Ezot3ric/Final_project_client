@@ -58,6 +58,7 @@ const Navigator = () => {
 
                                     <Nav.Link as="span">
                                         <Link to="/my-profile/edit">Profile {user.username}</Link>
+                                        <Link to="/my-profile">My Profile</Link>
                                     </Nav.Link>
 
                                     <Nav.Link as="span">
