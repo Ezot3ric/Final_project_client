@@ -1,35 +1,36 @@
-// import { createContext, useState, useEffect } from 'react'
-// import gameServices from '../services/game.services'
+import { createContext, useState } from 'react'
+import gamesServices from '../services/game.services'
 
-// const GameContext = createContext()
+const GamesContext = createContext()
 
-// function GameProviderWrapper(props) {
+function GamesProviderWrapper(props) {
 
-//     const [games, setGames] = useState([])
+    const [games, setGames] = useState([])
+
+    const updateGame = (game_id) => {
+
+        gamesServices
+
+            .updateGame(game_id)
+            .then(({ data }) => setGames(data))
+            .catch(err => console.error(err))
+    }
 
 
-//     const updateGame = (itemId) => {
+    const gamesDelete = game_id => {
 
-//         gameServices
-//             .updateGame(itemId)
-//             .then(({ data }) => setGames(data.items))
-//             .catch(err => console.error(err))
-//     }
+        gamesServices
 
+            .deleteGame(game_id)
+            .then(({ data }) => setGames(data))
+            .catch(err => console.error(err))
+    }
 
-//     const removeGame = itemId => {
+    return (
+        <GamesContext.Provider value={{ games, updateGame, gamesDelete }}>
+            {props.children}
+        </GamesContext.Provider>
+    )
+}
 
-//         gameServices
-//             .deleteGame(itemId)
-//             .then(({ data }) => setGames(data.items))
-//             .catch(err => console.error(err))
-//     }
-
-//     return (
-//         <GameContext.Provider value={{ updateGame, removeGame }}>
-//             {props.children}
-//         </GameContext.Provider>
-//     )
-// }
-
-// export { GameContext, GameProviderWrapper }
+export { GamesContext, GamesProviderWrapper }

@@ -3,8 +3,6 @@ import { Container, Row, Col, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import FavoritesCard from './../FavoritesCard/FavoritesCard'
 
-
-
 export default function UserProfile({ user }) {
 
     return (

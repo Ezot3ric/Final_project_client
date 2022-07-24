@@ -6,7 +6,7 @@ import { MessageContext } from './../../contexts/userMessage.context'
 import gameService from '../../services/game.services'
 import uploadServices from './../../services/upload.services'
 
-const GameForm = () => {
+const GameForm = ({ fireFinalActions }) => {
 
     const [gameData, setGameData] = useState({
 
@@ -37,6 +37,7 @@ const GameForm = () => {
         gameService
             .addGame(gameData)
             .then(() => {
+                fireFinalActions()
                 setShowMessage({ show: true, title: `Game registrer!`, text: `Last game add` })
                 navigate('/games-list')
             })
@@ -72,7 +73,7 @@ const GameForm = () => {
                 <Form.Control type="text" value={release} onChange={handleChange} name="release" />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="avatar">
+            <Form.Group className="mb-3" controlId="imgs">
                 <Form.Label>Image</Form.Label>
                 <Form.Control type="file" onChange={handleFileInput} name="imgs" />
             </Form.Group>

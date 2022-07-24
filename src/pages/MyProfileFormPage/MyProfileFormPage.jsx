@@ -1,15 +1,13 @@
 import { Container } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
 import MyProfileForm from '../../components/MyProfileForm/MyProfileForm'
 
-const NewGamePage = () => {
+const MyProfileFormPage = () => {
 
+    const navigate = useNavigate()
     return (
 
         <Container>
-
-            <h1>Edit user profile</h1>
-
-            <hr />
 
             <MyProfileForm />
 
@@ -18,4 +16,4 @@ const NewGamePage = () => {
     )
 }
 
-export default NewGamePage
+export default MyProfileFormPage

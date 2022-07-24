@@ -1,7 +1,6 @@
 import { createContext, useState } from 'react'
 import favoritesService from '../services/favorites.services'
 
-
 const FavoritesContext = createContext()
 
 function FavoritesProviderWrapper(props) {
@@ -11,6 +10,7 @@ function FavoritesProviderWrapper(props) {
     const addToFavorites = (game_id) => {
 
         favoritesService
+
             .addFavorite(game_id)
             .then(({ data }) => setFavorites(data))
             .catch(err => console.error(err))
@@ -19,6 +19,7 @@ function FavoritesProviderWrapper(props) {
     const removeFromFavorites = game_id => {
 
         favoritesService
+
             .removeFavorite(game_id)
             .then(({ data }) => setFavorites(data))
             .catch(err => console.error(err))

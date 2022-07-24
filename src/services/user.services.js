@@ -25,12 +25,12 @@ class UserServices {
         return this.api.get(`/profile/${user_id}`)
     }
 
-    editUser(user_id) {
-        return this.api.put(`/profile/edit/${user_id}`)
+    editUser = user_id => {
+        return this.api.put(`/updateUser/${user_id}`)
     }
 
     deleteUser(user_id) {
-        return this.api.delete(`/deleteGame/${user_id}`)
+        return this.api.delete(`/deleteUser/${user_id}`)
     }
 
 }

@@ -1,16 +1,25 @@
 import './GameCard.css'
+import { useContext } from 'react'
 import { Card, Button, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+
 import { CartContext } from './../../contexts/cart.context'
 import { FavoritesContext } from './../../contexts/favorites.context'
-import { useContext } from 'react'
+import { GamesContext } from './../../contexts/game.context'
 
 const GameCard = ({ name, imgs, price, _id }) => {
 
+    //CART
     const { addItem } = useContext(CartContext)
     const { removeItem } = useContext(CartContext)
+
+    //WISHLIST
     const { addToFavorites } = useContext(FavoritesContext)
     const { removeFromFavorites } = useContext(FavoritesContext)
+
+    //GAMES
+    // const { updateGame } = useContext(GamesContext)
+    const { gamesDelete } = useContext(GamesContext)
 
     return (
         <Row>
@@ -29,8 +38,12 @@ const GameCard = ({ name, imgs, price, _id }) => {
                     <div className="d-grid mb-6">
                         <Button onClick={() => addItem(_id)} variant='dark' as='div'>Add to cart</Button>
                         <Button onClick={() => removeItem(_id)} variant='dark' as='div'>Remove Item</Button>
+
                         <Button onClick={() => addToFavorites(_id)} variant='dark' as='div'>Add to wishlist</Button>
                         <Button onClick={() => removeFromFavorites(_id)} variant='dark' as='div'>Remove from wishlist</Button>
+
+                        {/* <Button onClick={() => updateGame(_id)} variant='dark' as='div'>Update Game</Button> */}
+                        <Button onClick={() => gamesDelete(_id)} variant='dark' as='div'>Remove Game</Button>
                     </div>
                 </Card.Body>
             </Card>

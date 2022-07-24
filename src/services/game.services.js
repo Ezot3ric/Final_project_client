@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-class GameServices {
+class GamesServices {
 
     constructor() {
 
@@ -40,11 +40,11 @@ class GameServices {
     }
 
 
-    deleteGame = itemId => {
-        return this.api.put('/deleteGame', { game_id: itemId })
+    deleteGame = game_id => {
+        return this.api.delete(`/gamesDelete/${game_id}`)
     }
 }
 
-const gameServices = new GameServices()
+const gamesServices = new GamesServices()
 
-export default gameServices
+export default gamesServices

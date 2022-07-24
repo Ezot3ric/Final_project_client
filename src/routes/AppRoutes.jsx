@@ -10,6 +10,8 @@ import PrivateRoute from './PrivateRoutes'
 import MyProfilePage from '../pages/MyProfilePage/MyProfilePage'
 import MyProfileFormPage from '../pages/MyProfileFormPage/MyProfileFormPage'
 import MyProfileForm from '../components/MyProfileForm/MyProfileForm'
+import GameCard from '../components/GameCard/GameCard'
+
 
 
 const AppRoutes = () => {
@@ -21,23 +23,18 @@ const AppRoutes = () => {
             <Route path="/login" element={<LogInPage />} />
             <Route path="/games-list" element={<GamesPage />} />
             <Route path="/details/:game_id" element={<GameDetails />} />
-
+            <Route path="/deleteGame/:game_id" element={<GameCard />} />
 
             <Route path="/addGame" element={<PrivateRoute />}>
                 <Route path="" element={<NewGamePage />} />
-
             </Route>
+
             <Route path="/my-profile" element={<PrivateRoute />}>
                 <Route path="" element={<MyProfilePage />} />
             </Route>
 
             <Route path="/my-profile/edit" element={<PrivateRoute />}>
                 <Route path="" element={<MyProfileForm />} />
-
-            </Route>
-            <Route path="/my-profile/edit" element={<PrivateRoute />}>
-                <Route path="" element={<MyProfileFormPage />} />
-
             </Route>
 
             <Route path="/cart" element={<Cart />} />

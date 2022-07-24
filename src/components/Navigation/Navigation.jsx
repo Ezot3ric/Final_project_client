@@ -57,7 +57,7 @@ const Navigator = () => {
                                     </Nav.Link>
 
                                     <Nav.Link as="span">
-                                        <Link to="/my-profile">My Profile</Link>
+                                        <Link to="/my-profile">Hi {user.username}</Link>
                                     </Nav.Link>
 
                                     <Nav.Link as="span">

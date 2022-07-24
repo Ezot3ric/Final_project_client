@@ -1,8 +1,6 @@
 import { createContext, useState, useEffect } from 'react'
 import cartService from '../services/cart.services'
 
-
-
 const CartContext = createContext()
 
 function CartProviderWrapper(props) {
@@ -27,7 +25,9 @@ function CartProviderWrapper(props) {
 
 
     const getItems = () => {
+
         cartService
+
             .getItems()
             .then(({ data }) => setItems(data.items))
             .catch(err => console.log(err))
@@ -36,6 +36,7 @@ function CartProviderWrapper(props) {
     const addItem = (itemId) => {
 
         cartService
+
             .addItem(itemId)
             .then(({ data }) => setItems(data.items))
             .catch(err => console.error(err))
@@ -44,6 +45,7 @@ function CartProviderWrapper(props) {
     const removeItem = itemId => {
 
         cartService
+
             .removeItem(itemId)
             .then(({ data }) => setItems(data.items))
             .catch(err => console.error(err))
