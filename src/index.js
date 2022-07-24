@@ -9,6 +9,7 @@ import { MessageProviderWrapper } from './contexts/userMessage.context'
 import { AuthProviderWrapper } from './contexts/auth.context'
 import { CartProviderWrapper } from './contexts/cart.context'
 import { FavoritesProviderWrapper } from './contexts/favorites.context';
+import { GameProviderWrapper } from './contexts/game.context';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
@@ -21,7 +22,9 @@ root.render(
         <AuthProviderWrapper>
           <CartProviderWrapper>
             <FavoritesProviderWrapper>
-              <App />
+              <GameProviderWrapper>
+                <App />
+              </GameProviderWrapper>
             </FavoritesProviderWrapper>
           </CartProviderWrapper>
         </AuthProviderWrapper>

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-class UpdateService {
+class UploadServices {
 
     constructor() {
 
@@ -25,6 +25,6 @@ class UpdateService {
     }
 }
 
-const updateService = new UpdateService()
+const uploadServices = new UploadServices()
 
-export default updateService
+export default uploadServices

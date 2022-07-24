@@ -1,35 +1,53 @@
-// import { createContext, useState, useEffect } from 'react'
-// import gameServices from '../services/game.services'
+import { createContext, useState, useEffect } from 'react'
+import gameServices from '../services/game.services'
 
-// const GameContext = createContext()
+const GameContext = createContext()
 
-// function GameProviderWrapper(props) {
+function GameProviderWrapper(props) {
 
-//     const [games, setGames] = useState([])
+    const [games, setGames] = useState([])
 
+    useEffect(() => {
 
-//     const updateGame = (itemId) => {
+        removeGame()
 
-//         gameServices
-//             .updateGame(itemId)
-//             .then(({ data }) => setGames(data.items))
-//             .catch(err => console.error(err))
-//     }
+    }, [games])
 
 
-//     const removeGame = itemId => {
+    const getOneGame = (game_id) => {
+        return gameServices.getOneGame(game_id)
+    }
 
-//         gameServices
-//             .deleteGame(itemId)
-//             .then(({ data }) => setGames(data.items))
-//             .catch(err => console.error(err))
-//     }
 
-//     return (
-//         <GameContext.Provider value={{ updateGame, removeGame }}>
-//             {props.children}
-//         </GameContext.Provider>
-//     )
-// }
+    const updateGame = (game_id, gameData) => {
 
-// export { GameContext, GameProviderWrapper }
+        gameServices
+            .updateGame(game_id, gameData)
+            .then(() => loadGames())
+            .catch(err => console.error(err))
+    }
+
+    const loadGames = () => {
+        gameServices
+            .getGames()
+            .then(({ data }) => setGames(data))
+            .catch(err => console.error(err))
+    }
+
+
+    const removeGame = game_id => {
+
+        gameServices
+            .deleteGame(game_id)
+            .then(({ data }) => setGames(data))
+            .catch(err => console.error(err))
+    }
+
+    return (
+        <GameContext.Provider value={{ updateGame, removeGame, games, loadGames, getOneGame }}>
+            {props.children}
+        </GameContext.Provider>
+    )
+}
+
+export { GameContext, GameProviderWrapper }

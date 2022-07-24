@@ -1,8 +1,8 @@
 import { useEffect, useState, useContext } from 'react'
 import './GamesPage.css'
-import gameService from '../../services/game.services'
 import GamesList from './../../components/GamesList/GamesList'
 import { Col, Container, Row } from 'react-bootstrap'
+import gameServices from '../../services/game.services'
 
 
 const GamesPage = () => {
@@ -14,7 +14,7 @@ const GamesPage = () => {
     }, [])
 
     const loadGames = () => {
-        gameService
+        gameServices
             .getGames()
             .then(({ data }) => setGames(data))
             .catch(err => console.error(err))
