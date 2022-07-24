@@ -8,10 +8,9 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { MessageProviderWrapper } from './contexts/userMessage.context'
 import { AuthProviderWrapper } from './contexts/auth.context'
 import { CartProviderWrapper } from './contexts/cart.context'
-import { FavoritesProviderWrapper } from './contexts/favorites.context'
-import { UserProviderWrapper } from './contexts/user.context'
-import { GamesProviderWrapper } from './contexts/game.context';
-import { FilterProviderWrapper } from './contexts/filter.context';
+import { FavoritesProviderWrapper } from './contexts/favorites.context';
+import { GameProviderWrapper } from './contexts/game.context';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
@@ -23,13 +22,9 @@ root.render(
         <AuthProviderWrapper>
           <CartProviderWrapper>
             <FavoritesProviderWrapper>
-              <UserProviderWrapper>
-                <GamesProviderWrapper>
-                  <FilterProviderWrapper>
-                    <App />
-                  </FilterProviderWrapper>
-                </GamesProviderWrapper>
-              </UserProviderWrapper>
+              <GameProviderWrapper>
+                <App />
+              </GameProviderWrapper>
             </FavoritesProviderWrapper>
           </CartProviderWrapper>
         </AuthProviderWrapper>
