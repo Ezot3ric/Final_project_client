@@ -22,7 +22,7 @@ const GameCard = ({ name, imgs, price, _id }) => {
 
     //GAMES
     // const { updateGame } = useContext(GamesContext)
-    const { gamesDelete } = useContext(GameContext)
+    //const { gamesDelete } = useContext(GameContext)
 
     return (
         <Row>
