@@ -19,6 +19,11 @@ const GameCard = ({ name, imgs, price, _id }) => {
     const { removeFromFavorites } = useContext(FavoritesContext)
     const { removeGame } = useContext(GameContext)
 
+
+    //GAMES
+    // const { updateGame } = useContext(GamesContext)
+    const { gamesDelete } = useContext(GameContext)
+
     return (
         <Row>
             <Card className='GameCard mb-6'>
