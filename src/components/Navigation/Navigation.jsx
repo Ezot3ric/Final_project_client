@@ -6,7 +6,7 @@ import { MessageContext } from '../../contexts/userMessage.context'
 import { Link } from 'react-router-dom'
 
 
-const Navigator = ({ fireFinalActions }) => {
+const Navigator = ({ firefinalactions }) => {
 
     const { user, logoutUser } = useContext(AuthContext)
     const { setShowMessage } = useContext(MessageContext)
@@ -15,6 +15,7 @@ const Navigator = ({ fireFinalActions }) => {
         setShowMessage({ show: true, title: 'Good bye!', text: 'Your sesion is closed' })
         logoutUser()
     }
+
 
     return (
 

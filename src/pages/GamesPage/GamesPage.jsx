@@ -9,6 +9,7 @@ import GameForm from './../../components/GameForm/GameForm'
 import GamesFilter from '../../components/GamesFilter/GamesFilter'
 import gamesServices from '../../services/game.services'
 
+
 const GamesPage = () => {
 
     const [games, setGames] = useState([])
@@ -63,6 +64,7 @@ const GamesPage = () => {
                     </Col>
                 </Row>
             </Container>
+
             <Modal show={showModal} onHide={closeModal}>
                 <Modal.Header closeButton>
                     <Modal.Title>New game</Modal.Title>

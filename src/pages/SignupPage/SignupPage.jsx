@@ -3,6 +3,7 @@ import SingUpForm from '../../components/SignUpForm/SignUpForm'
 
 const SignUpPage = () => {
 
+
     return (
         <>
             <Container>
