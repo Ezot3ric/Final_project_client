@@ -7,13 +7,10 @@ import { useContext } from 'react'
 
 const GamesList = ({ games }) => {
 
-    const { filterGames } = useContext(FilterContext)
-
     return (
         <Container>
             <Row>
 
-                <GamesFilter filterGames={filterGames} />
                 {
                     games.map((game) => (
                         <Col md={3} key={game._id}>

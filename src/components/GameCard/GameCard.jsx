@@ -1,11 +1,10 @@
 import './GameCard.css'
 import { useContext } from 'react'
-import { Card, Button, Row } from 'react-bootstrap'
+import { Card, Button, Row} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 import { CartContext } from './../../contexts/cart.context'
 import { FavoritesContext } from './../../contexts/favorites.context'
-import { useContext } from 'react'
 import { GameContext } from '../../contexts/game.context'
 
 const GameCard = ({ name, imgs, price, _id }) => {
@@ -22,7 +21,7 @@ const GameCard = ({ name, imgs, price, _id }) => {
 
     //GAMES
     // const { updateGame } = useContext(GamesContext)
-    const { gamesDelete } = useContext(GamesContext)
+    const { gamesDelete } = useContext(GameContext)
 
     return (
         <Row>

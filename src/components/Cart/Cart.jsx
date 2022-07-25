@@ -8,7 +8,7 @@ export default function Cart() {
 
     useEffect(() => {
         getItems()
-    }, [])
+    }, [items])
 
     return (
 

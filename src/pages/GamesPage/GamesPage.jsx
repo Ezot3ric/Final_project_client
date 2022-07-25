@@ -1,8 +1,11 @@
 import { useEffect, useState, useContext } from 'react'
 import './GamesPage.css'
 import GamesList from './../../components/GamesList/GamesList'
-import { Col, Container, Row } from 'react-bootstrap'
+import { Col, Container, Row, Modal } from 'react-bootstrap'
 import gameServices from '../../services/game.services'
+import { MessageContext } from '../../contexts/userMessage.context'
+import { AuthContext } from '../../contexts/auth.context'
+import GameForm from '../../components/GameForm/GameForm'
 
 
 const GamesPage = () => {
