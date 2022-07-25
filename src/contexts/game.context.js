@@ -28,6 +28,7 @@ function GameProviderWrapper(props) {
     }
 
     const loadGames = () => {
+
         gameServices
             .getGames()
             .then(({ data }) => setGames(data))

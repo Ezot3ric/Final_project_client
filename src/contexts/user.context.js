@@ -5,34 +5,49 @@ const UserContext = createContext()
 
 function UserProviderWrapper(props) {
 
-    const [user, setUser] = useState()
+    const [user, setUser] = useState([])
 
     useEffect(() => {
-        getUser()
-    }, [])
+
+        removeUser()
+
+    }, [user])
 
 
-    const getUser = () => {
+    const getUser = (user_id) => {
+        return userServices.getUser(user_id)
+    }
+
+    const updateUser = (user_id, userData) => {
 
         userServices
+            .updateUser(user_id, userData)
+            .then(() => loadUser())
+            .catch(err => console.log(err))
+    }
 
+    const loadUser = () => {
+
+        userServices
             .getUser()
-            .then(({ data }) => setUser(data.user))
-            .catch(err => console.log(err))
+            .then(({ data }) => setUser(data))
+            .catch(err => console.error(err))
     }
 
-    const updateUserProfile = () => {
+
+    const removeUser = user_id => {
 
         userServices
-
-            .editUser()
-            .then(({ data }) => setUser(data.user))
-            .catch(err => console.log(err))
+            .deleteUser(user_id)
+            .then(({ data }) => setUser(data))
+            .catch(err => console.error(err))
     }
+
+
 
 
     return (
-        <UserContext.Provider value={{ user, getUser, updateUserProfile }}>
+        <UserContext.Provider value={{ user, getUser, updateUser, loadUser, removeUser }}>
             {props.children}
         </UserContext.Provider>
     )

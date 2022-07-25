@@ -25,8 +25,8 @@ class UserServices {
         return this.api.get(`/profile/${user_id}`)
     }
 
-    editUser = user_id => {
-        return this.api.put(`/updateUser/${user_id}`)
+    updateUser(user_id, userData) {
+        return this.api.put(`/profile/edit/${user_id}`, userData)
     }
 
     deleteUser(user_id) {

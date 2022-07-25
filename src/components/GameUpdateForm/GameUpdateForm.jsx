@@ -1,13 +1,13 @@
 import React from 'react'
-import { useEffect } from 'react'
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { useContext } from 'react'
-import { GameContext } from '../../contexts/game.context'
-import Loader from '../Loader/Loader'
+import { useEffect, useState, useContext } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 import { Form, Row, Col, Button } from 'react-bootstrap'
+
+import Loader from '../Loader/Loader'
 import uploadServices from '../../services/upload.services'
-import { useParams } from 'react-router-dom'
+import { GameContext } from '../../contexts/game.context'
+
+
 
 export default function GameUpdateForm() {
 

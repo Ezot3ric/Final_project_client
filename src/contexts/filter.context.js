@@ -5,16 +5,16 @@ const FilterContext = createContext()
 function FilterProviderWrapper(props) {
 
     const [gamesList, setGameList] = useState([])
-    const [gamesData, setGamesData] = useState([])
+    const [gamesSelected, setGamesSelected] = useState([])
 
     //FILTER GAMES
     const filterGames = letter => {
-
+        letter = 'A'
         if (letter === 'All') {
-            setGameList(gamesData)
+            setGameList(gamesSelected)
 
         } else {
-            const filteredGames = gamesData.filter(elm => elm.name.startsWith(letter))
+            const filteredGames = gamesSelected.filter(elm => elm.name.startsWith(letter))
 
             setGameList(filteredGames)
         }

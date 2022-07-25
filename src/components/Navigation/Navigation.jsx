@@ -6,7 +6,7 @@ import { MessageContext } from '../../contexts/userMessage.context'
 import { Link } from 'react-router-dom'
 
 
-const Navigator = () => {
+const Navigator = ({ fireFinalActions }) => {
 
     const { user, logoutUser } = useContext(AuthContext)
     const { setShowMessage } = useContext(MessageContext)

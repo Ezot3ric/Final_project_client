@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 import { CartContext } from './../../contexts/cart.context'
 import { FavoritesContext } from './../../contexts/favorites.context'
-import { useContext } from 'react'
+
 import { GameContext } from '../../contexts/game.context'
 
 const GameCard = ({ name, imgs, price, _id }) => {
@@ -18,11 +18,6 @@ const GameCard = ({ name, imgs, price, _id }) => {
     const { addToFavorites } = useContext(FavoritesContext)
     const { removeFromFavorites } = useContext(FavoritesContext)
     const { removeGame } = useContext(GameContext)
-
-
-    //GAMES
-    // const { updateGame } = useContext(GamesContext)
-    const { gamesDelete } = useContext(GamesContext)
 
     return (
         <Row>
@@ -44,7 +39,7 @@ const GameCard = ({ name, imgs, price, _id }) => {
 
                         <Button onClick={() => addToFavorites(_id)} variant='dark' as='div'>Add to wishlist</Button>
                         <Button onClick={() => removeFromFavorites(_id)} variant='dark' as='div'>Remove from wishlist</Button>
-                        <Button onClick={() => removeGame(_id)} variant='dark' as='div'>Delete Game</Button>
+                        {/* <Button onClick={() => removeGame(_id)} variant='dark' as='div'>Delete Game</Button> */}
                         <Link to={`/game-update/${_id}`}>
 
                             <div className="d-grid">

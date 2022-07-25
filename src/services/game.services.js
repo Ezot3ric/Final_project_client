@@ -29,9 +29,12 @@ class GamesServices {
         return this.api.get(`/getOneGame/${game_id}`)
     }
 
-
     addGame(gameData) {
         return this.api.post('/addGame', gameData)
+    }
+
+    filterGames(query) {
+        return this.api.get(`/getFilteredGames?name=${query}`)
     }
 
 

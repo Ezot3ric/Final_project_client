@@ -6,7 +6,7 @@ import uploadServices from './../../services/upload.services'
 
 import { MessageContext } from '../../contexts/userMessage.context'
 
-const SignUpForm = () => {
+const SignUpForm = ({ fireFinalActions }) => {
 
     const [signupData, setSignupData] = useState({
         name: '',
@@ -31,6 +31,7 @@ const SignUpForm = () => {
         authService
             .signup(signupData)
             .then(({ data }) => {
+                fireFinalActions()
                 setShowMessage({ show: true, title: `Welcome, ${data.user.username}`, text: 'You are signup' })
                 navigate('/login')
             })
@@ -84,7 +85,7 @@ const SignUpForm = () => {
 
 
                 <div className="d-grid">
-                    <Button variant="dark" type="submit">Sign Up</Button>
+                    <Button variant="dark" type="submit" >Sign Up</Button>
                 </div>
 
             </Form>
