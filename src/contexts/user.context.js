@@ -1,6 +1,5 @@
 import { createContext, useState, useEffect } from 'react'
 import userServices from '../services/user.services'
-
 const UserContext = createContext()
 
 function UserProviderWrapper(props) {
@@ -27,20 +26,8 @@ function UserProviderWrapper(props) {
             .catch(err => console.error(err))
     }
 
-
-    const removeUser = user_id => {
-
-        userServices
-            .deleteUser(user_id)
-            .then(({ data }) => setUser(data))
-            .catch(err => console.error(err))
-    }
-
-
-
-
     return (
-        <UserContext.Provider value={{ user, getUser, updateUser, loadUser, removeUser }}>
+        <UserContext.Provider value={{ user, getUser, updateUser, loadUser }}>
             {props.children}
         </UserContext.Provider>
     )
