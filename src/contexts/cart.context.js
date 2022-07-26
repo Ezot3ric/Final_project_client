@@ -47,7 +47,7 @@ function CartProviderWrapper(props) {
         cartService
 
             .removeItem(itemId)
-            .then(({ data }) => setItems(data.items))
+            .then(({ data }) => getItems())
             .catch(err => console.error(err))
     }
 

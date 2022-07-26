@@ -6,9 +6,7 @@ export default function Cart() {
 
     const { items, getItems, totalPrice, shippingPrice, addItem, removeItem, itemsPrice } = useContext(CartContext)
 
-    useEffect(() => {
-        getItems()
-    }, [items])
+
 
     return (
 
@@ -22,7 +20,8 @@ export default function Cart() {
                             <div className='col-2'>{item.product.name}</div>
                             <div className='col-2'>
                                 <button onClick={() => addItem(item.product)} className="add">+</button>
-                                <button onClick={() => removeItem(item.product)} className="remove">-</button>
+                                <button onClick={() => removeItem(item._id)} className="remove">-</button>
+                                {/* <button onClick={() => removeItem(item.product)} className="remove">-</button> */}
                             </div>
                             <div className='col-2 text-right'>
                                 {item.product.price}$
