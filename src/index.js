@@ -25,7 +25,6 @@ root.render(
             <FavoritesProviderWrapper>
               <GameProviderWrapper>
                 <UserProviderWrapper>
-
                   <App />
                 </UserProviderWrapper>
               </GameProviderWrapper>

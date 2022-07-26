@@ -15,19 +15,21 @@ function CartProviderWrapper(props) {
     }, [])
 
     useEffect(() => {
-
         const itemsPriceSum = items.reduce((acc, curr) => acc + curr.product.price, 0)
         setItemsPrice(itemsPriceSum)
-        setShippingPrice(itemsPrice > 200 ? 0 : 5)
-        setTotalPrice(itemsPrice + shippingPrice)
-
     }, [items])
+
+    useEffect(() => {
+        const shipping = itemsPrice > 200 ? 0 : 5
+        setShippingPrice(shipping)
+        setTotalPrice(itemsPrice + shipping)
+    }, [itemsPrice])
+
 
 
     const getItems = () => {
 
         cartService
-
             .getItems()
             .then(({ data }) => setItems(data.items))
             .catch(err => console.log(err))
@@ -36,18 +38,16 @@ function CartProviderWrapper(props) {
     const addItem = (itemId) => {
 
         cartService
-
             .addItem(itemId)
-            .then(({ data }) => setItems(data.items))
+            .then(({ data }) => getItems())
             .catch(err => console.error(err))
     }
 
     const removeItem = itemId => {
 
         cartService
-
             .removeItem(itemId)
-            .then(({ data }) => setItems(data.items))
+            .then(({ data }) => getItems())
             .catch(err => console.error(err))
     }
 

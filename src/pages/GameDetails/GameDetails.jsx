@@ -2,13 +2,42 @@ import { Container, Col, Carousel, Row } from "react-bootstrap"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import gameService from "../../services/game.services"
-
+import Rating from './../../components/Rating/Rating'
+import heart from './../../Images/heart.png'
+import lover from './../../Images/lover.png'
+import { FavoritesContext } from "../../contexts/favorites.context"
+import { useContext } from "react"
+import gamesServices from "../../services/game.services"
 
 const GameDetails = () => {
 
-  const { game_id } = useParams()
+  const { addToFavorites, removeFromFavorites } = useContext(FavoritesContext)
 
   const [game, setGame] = useState({})
+  const [isFav, setIsFav] = useState(false)
+  const [favorites, setFavorites] = useState([])
+
+  const toggleFav = () => {
+    isFav ? removeFromFavorites(game._id) : addToFavorites(game._id)
+    setIsFav(!isFav)
+  }
+
+  const { game_id } = useParams()
+
+  useEffect(() => {
+    loadGames()
+  }, [])
+
+  const loadGames = () => {
+    gamesServices
+      .getGames()
+      .then(({ data }) => {
+        setFavorites(data.favorites)
+        setIsFav(favorites.includes(game._id))
+      })
+      .catch(err => console.error(err))
+  }
+
 
   useEffect(() => {
     gameService
@@ -21,16 +50,16 @@ const GameDetails = () => {
   return (
     <Container>
       <Row>
-
         <Col md={{ span: 6 }}>
 
           <h3>{game.name}</h3>
           <p>{game.description}</p>
           <p>Genre: {game.genre}</p>
           <p>Released: {game.release}</p>
-          <p>Rating: {game.rating}</p>
+          <p>Rating: <Rating>{game.rating}</Rating></p>
           <p>Available for:{game.platforms}</p>
           <p>Price: {game.price}$</p>
+          <img className='image' onClick={() => toggleFav()} src={isFav ? lover : heart} />
 
         </Col>
 
@@ -50,12 +79,8 @@ const GameDetails = () => {
             }
 
           </Carousel>
-
         </Col>
-
       </Row>
-
-
     </Container >
   )
 }

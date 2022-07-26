@@ -3,7 +3,7 @@ const GamesFilter = ({ filterGames }) => {
 
     return (
         <div className="FilterGames">
-            <input type="text" placeholder="ESCRIBE EL NOMBRE..." onChange={filterGames} />
+            <input type="text" placeholder="Search for name..." onChange={filterGames} />
         </div>
     )
 }

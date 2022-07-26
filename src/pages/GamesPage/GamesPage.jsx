@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from 'react'
 import './GamesPage.css'
 import GamesList from './../../components/GamesList/GamesList'
-import { Col, Container, Row, Modal } from 'react-bootstrap'
+import { Col, Container, Row, Modal, Button } from 'react-bootstrap'
 import gameServices from '../../services/game.services'
 import { MessageContext } from '../../contexts/userMessage.context'
 import { AuthContext } from '../../contexts/auth.context'
@@ -13,6 +13,7 @@ import gamesServices from '../../services/game.services'
 const GamesPage = () => {
 
     const [games, setGames] = useState([])
+    const [favorites, setFavorites] = useState([])
     const [showModal, setShowModal] = useState(false)
 
     const { setShowMessage } = useContext(MessageContext)
@@ -24,12 +25,12 @@ const GamesPage = () => {
     }, [])
 
     const loadGames = () => {
-
         gameServices
             .getGames()
             .then(({ data }) => {
-                setGames(data)
-                setShowMessage({ show: true, title: `We loader ${data.length} games`, text: `You got it man!` })
+                setGames(data.gamesList)
+                setFavorites(data.favorites)
+                setShowMessage({ show: true, title: `We loader ${data.gamesList.length} games`, text: `You got it man!` })
             })
             .catch(err => console.error(err))
     }
@@ -55,12 +56,12 @@ const GamesPage = () => {
     return (
         <>
             <Container>
-                <h1> {user && <span as="href" onClick={openModal}>Push for add a new game</span>} </h1>
+                <h1> {user && <Button as="href" variant="dark" onClick={openModal}>Add a new game</Button>} </h1>
                 <hr />
                 <Row>
                     <Col>
                         <GamesFilter filterGames={filterGames} />
-                        <GamesList games={games} />
+                        <GamesList games={games} favorites={favorites} />
                     </Col>
                 </Row>
             </Container>

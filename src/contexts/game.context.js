@@ -7,12 +7,6 @@ function GameProviderWrapper(props) {
 
     const [games, setGames] = useState([])
 
-    useEffect(() => {
-
-        removeGame()
-
-    }, [games])
-
 
     const getOneGame = (game_id) => {
         return gameServices.getOneGame(game_id)
@@ -35,17 +29,8 @@ function GameProviderWrapper(props) {
             .catch(err => console.error(err))
     }
 
-
-    const removeGame = game_id => {
-
-        gameServices
-            .deleteGame(game_id)
-            .then(({ data }) => setGames(data))
-            .catch(err => console.error(err))
-    }
-
     return (
-        <GameContext.Provider value={{ updateGame, removeGame, games, loadGames, getOneGame }}>
+        <GameContext.Provider value={{ updateGame, games, loadGames, getOneGame }}>
             {props.children}
         </GameContext.Provider>
     )

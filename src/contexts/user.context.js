@@ -7,13 +7,6 @@ function UserProviderWrapper(props) {
 
     const [user, setUser] = useState([])
 
-    useEffect(() => {
-
-        removeUser()
-
-    }, [user])
-
-
     const getUser = (user_id) => {
         return userServices.getUser(user_id)
     }
