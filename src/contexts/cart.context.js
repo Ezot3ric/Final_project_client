@@ -15,7 +15,7 @@ function CartProviderWrapper(props) {
     }, [])
 
     useEffect(() => {
-        const itemsPriceSum = items.reduce((acc, curr) => acc + curr.product.price, 0)
+        const itemsPriceSum = items.reduce((acc, curr) => acc + curr.product.price * curr.quantity, 0)
         setItemsPrice(itemsPriceSum)
     }, [items])
 
