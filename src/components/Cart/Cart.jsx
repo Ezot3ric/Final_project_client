@@ -60,8 +60,9 @@ export default function Cart() {
                                             </Col>
                                             <Col className='d-flex justify-content-center align-items-center'>
                                                 <div >
-                                                    <button onClick={() => addItem(item.product)} className="add">+</button>
-                                                    <button onClick={() => removeItem(item._id)} className="remove">-</button>
+                                                    <button onClick={() => addItem(item.product._id)}>+</button>
+                                                    {item.quantity}
+                                                    <button onClick={() => removeItem(item.product._id)}>-</button>
                                                 </div>
                                             </Col>
                                             <Col className='d-flex justify-content-end align-items-center'>
@@ -102,7 +103,7 @@ export default function Cart() {
                             </Row>
 
                             <div style={{ marginTop: '10px' }} className='d-flex justify-content-center'>
-                                <Link to="/cart">
+                                <Link to="/cart/payment">
                                     <Button className='button-85' as='div'>Buy</Button>
                                 </Link>
                             </div>
@@ -115,12 +116,3 @@ export default function Cart() {
         </>
     )
 }
-
-
-
-
-
-
-
-
-

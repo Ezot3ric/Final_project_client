@@ -1,7 +1,8 @@
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js"
 import { Container, Form, Button } from "react-bootstrap"
+import { Link } from 'react-router-dom'
 import { useState } from "react"
-
+import './PaymentForm.css'
 import axios from 'axios'
 import "bootswatch/dist/lux/bootstrap.min.css"
 
@@ -32,39 +33,56 @@ const PaymentForm = () => {
                         id,
                         amount: 10000
                     }
-                );
-                console.log(data);
+                )
 
-                elements.getElement(CardElement).clear();
+                elements.getElement(CardElement).clear()
             } catch (error) {
-                console.log(error);
+
             }
-            setLoading(false);
+            setLoading(false)
         }
     }
     return (
 
         <Container>
-
-            <Form onSubmit={handleSubmit} className="card card-body">
+            <h1>Pay With Card</h1>
+            <Form onSubmit={handleSubmit} >
                 <img
                     src="https://qualityinspection.org/wp-content/uploads/2012/01/HowtoPayChineseSuppliersbyBankTransferTT.jpg"
                     alt="Card image"
                     className="img-fluid"
                 />
 
+                <Form.Group className="mb-3" controlId="name">
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control type="text" name="name" />
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="email">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control type="email" name="email" />
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="phone">
+                    <Form.Label>Phone</Form.Label>
+                    <Form.Control type="phone" name="phone" />
+                </Form.Group>
+
+
                 <div className="form-group">
                     <CardElement />
                 </div>
-                <button disabled={!stripe} className="btn btn-success">
-                    {loading ? (
-                        <div className="spinner-border text-light" role="status">
-                            <span className="sr-only">Loading...</span>
-                        </div>
-                    ) : (
-                        "Buy"
-                    )}
-                </button>
+                <Link to="/cart/paymentConfirm">
+                    <Button disabled={!stripe} className='button-85'>
+                        {loading ? (
+                            <div className="spinner-border text-light" role="status">
+                                <span className="sr-only">Loading...</span>
+                            </div>
+                        ) : (
+                            'Buy'
+                        )}
+                    </Button>
+                </Link>
             </Form>
         </Container >
 

@@ -7,7 +7,7 @@ import './SignUpForm.css'
 
 import { MessageContext } from '../../contexts/userMessage.context'
 
-const SignUpForm = () => {
+const SignUpForm = ({ fireFinalActions }) => {
 
     const [signupData, setSignupData] = useState({
         name: '',
@@ -33,6 +33,7 @@ const SignUpForm = () => {
             .signup(signupData)
             .then(({ data }) => {
                 setShowMessage({ show: true, title: `Welcome, ${data.user.username}`, text: 'You are signup' })
+                fireFinalActions()
                 navigate('/login')
             })
             .catch(err => console.log(err))

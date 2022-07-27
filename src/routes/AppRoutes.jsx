@@ -1,22 +1,27 @@
 import { Routes, Route } from 'react-router-dom'
+
+import Cart from '../components/Cart/Cart'
+
+import PrivateRoute from './PrivateRoutes'
+
 import GameDetails from '../pages/GameDetails/GameDetails'
 import GamesPage from '../pages/GamesPage/GamesPage'
 import NewGamePage from '../pages/NewGamePage/NewGamePage'
 import HomePage from '../pages/HomePage/HomePage'
-import Cart from '../components/Cart/Cart'
 import SignUpPage from '../pages/SignupPage/SignupPage'
 import LogInPage from '../pages/LogInPage/LogInPage'
-import PrivateRoute from './PrivateRoutes'
 import MyProfilePage from '../pages/MyProfilePage/MyProfilePage'
 import GameUpdateFormPage from '../pages/GameUpdateFormPage/GameUpdateFormPage'
 import UserUpdateFormPage from '../pages/UserUpdatePage/UserUpdatePage'
 import PaymentPage from '../pages/PaymentPage/PaymentPage'
+import PaymentConfirmPage from '../pages/PaymentConfirmPage/PaymentConfirmPage'
 
 const AppRoutes = () => {
 
     return (
         <Routes>
             <Route path="/" element={<HomePage />} />
+
             <Route path="/signup" element={<SignUpPage />} />
             <Route path="/login" element={<LogInPage />} />
             <Route path="/games-list" element={<GamesPage />} />
@@ -48,6 +53,10 @@ const AppRoutes = () => {
 
             <Route path="/cart/payment" element={<PrivateRoute />}>
                 <Route path="" element={<PaymentPage />} />
+            </Route>
+
+            <Route path="/cart/paymentConfirm" element={<PrivateRoute />}>
+                <Route path="" element={<PaymentConfirmPage />} />
             </Route>
         </Routes>
 

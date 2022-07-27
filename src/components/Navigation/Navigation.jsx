@@ -1,12 +1,14 @@
 import { useContext, useState } from 'react'
-import { Nav, Navbar, Container, NavDropdown, Modal, Col, Offcanvas } from 'react-bootstrap'
+import { Nav, Navbar, Container, NavDropdown, Modal, Offcanvas } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 import { AuthContext } from '../../contexts/auth.context'
 import { MessageContext } from '../../contexts/userMessage.context'
-import { Link } from 'react-router-dom'
+
 import SignUpForm from './../SignUpForm/SignUpForm'
 import LogInForm from './../LogInForm/LogInForm'
 import Cart from './../Cart/Cart'
+
 import './Navigation.css'
 
 const Navigator = () => {
@@ -39,8 +41,6 @@ const Navigator = () => {
         closeLogInModal()
         closeCartModal()
     }
-
-
 
     return (
         <>
@@ -117,7 +117,6 @@ const Navigator = () => {
                     <LogInForm fireFinalActions={fireFinalActions} />
                 </Modal.Body>
             </Modal>
-
 
             <Offcanvas show={showCartModal} onHide={closeCartModal}>
                 <Offcanvas.Header closeButton>

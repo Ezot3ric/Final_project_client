@@ -7,7 +7,7 @@ import authService from '../../services/auth.services'
 import { MessageContext } from './../../contexts/userMessage.context'
 import { AuthContext } from "../../contexts/auth.context"
 
-const LogInForm = () => {
+const LogInForm = ({ fireFinalActions }) => {
 
     const [loginData, setLoginData] = useState({
         email: '',
@@ -32,6 +32,7 @@ const LogInForm = () => {
                 storeToken(data.authToken)
                 authenticateUser()
                 setShowMessage({ show: true, title: `Welcome!`, text: `U are login!` })
+                fireFinalActions()
                 navigate('/games-list')
             })
             .catch(err => console.log(err))
