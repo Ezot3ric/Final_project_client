@@ -11,6 +11,7 @@ import MyProfilePage from '../pages/MyProfilePage/MyProfilePage'
 import GameUpdateFormPage from '../pages/GameUpdateFormPage/GameUpdateFormPage'
 import UserUpdateFormPage from '../pages/UserUpdatePage/UserUpdatePage'
 import PaymentPage from '../pages/PaymentPage/PaymentPage'
+import SecondaryCart from '../components/SecondaryCart/SecondaryCart'
 
 const AppRoutes = () => {
 
@@ -44,6 +45,10 @@ const AppRoutes = () => {
 
             <Route path="/cart" element={<PrivateRoute />}>
                 <Route path="" element={<Cart />} />
+            </Route>
+
+            <Route path="/secondary-cart" element={<PrivateRoute />}>
+                <Route path="" element={<SecondaryCart />} />
             </Route>
 
             <Route path="/cart/payment" element={<PrivateRoute />}>

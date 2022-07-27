@@ -18,7 +18,9 @@ const GameDetails = () => {
   const [game, setGame] = useState({})
   const [isFav, setIsFav] = useState(false)
   const [favorites, setFavorites] = useState([])
+
   const { user } = useContext(AuthContext)
+
   const toggleFav = () => {
     isFav ? removeFromFavorites(game._id) : addToFavorites(game._id)
     setIsFav(!isFav)
@@ -29,6 +31,7 @@ const GameDetails = () => {
   useEffect(() => {
     loadGames()
   }, [])
+
 
   const loadGames = () => {
     gamesServices

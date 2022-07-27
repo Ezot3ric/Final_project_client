@@ -19,7 +19,6 @@ export default function FavoritesCard({ name, imgs, price, _id }) {
                     </Link>
                     <div className="d-grid mb-6">
                         <Button variant='dark' as='div'>Add to cart</Button>
-                        <Button variant='dark' as='div'>Remove Item</Button>
                     </div>
                 </Card.Body>
             </Card>

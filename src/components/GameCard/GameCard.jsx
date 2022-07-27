@@ -8,6 +8,7 @@ import { CartContext } from './../../contexts/cart.context'
 import { FavoritesContext } from './../../contexts/favorites.context'
 import { MessageContext } from '../../contexts/userMessage.context'
 import cartService from '../../services/cart.services'
+import { useEffect } from 'react'
 
 
 const GameCard = ({ name, imgs, price, _id, favourite }) => {
@@ -18,13 +19,16 @@ const GameCard = ({ name, imgs, price, _id, favourite }) => {
     //WISHLIST
     const { addToFavorites, removeFromFavorites } = useContext(FavoritesContext)
 
-    const [isFav, setIsFav] = useState(favourite)
+    const [isFav, setIsFav] = useState(undefined)
 
     const toggleFav = () => {
         isFav ? removeFromFavorites(_id) : addToFavorites(_id)
         setIsFav(!isFav)
-
     }
+
+    useEffect(() => {
+        setIsFav(favourite)
+    }, [favourite])
 
     return (
 
