@@ -37,6 +37,7 @@ const HomePage = () => {
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
+                
                 <img
                     className="d-block w-100"
                     src="./images/slide3.jpg"
