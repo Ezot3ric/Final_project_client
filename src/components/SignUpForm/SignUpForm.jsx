@@ -3,6 +3,7 @@ import { Form, Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import authService from '../../services/auth.services'
 import uploadServices from './../../services/upload.services'
+import './SignUpForm.css'
 
 import { MessageContext } from '../../contexts/userMessage.context'
 
@@ -56,7 +57,7 @@ const SignUpForm = () => {
 
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="name">
-                    <Form.Label></Form.Label>
+                    <Form.Label ></Form.Label>
                     <Form.Control type="text" value={name} onChange={handleInputChange} name="name" placeholder="Name" />
                 </Form.Group>
 

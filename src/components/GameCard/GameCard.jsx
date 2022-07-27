@@ -6,13 +6,15 @@ import heart from './../../Images/heart.png'
 import lover from './../../Images/lover.png'
 import { CartContext } from './../../contexts/cart.context'
 import { FavoritesContext } from './../../contexts/favorites.context'
+import { MessageContext } from '../../contexts/userMessage.context'
+import cartService from '../../services/cart.services'
 
 
 const GameCard = ({ name, imgs, price, _id, favourite }) => {
 
     //CART
     const { addItem, removeItem } = useContext(CartContext)
-
+    const { setShowMessage } = useContext(MessageContext)
     //WISHLIST
     const { addToFavorites, removeFromFavorites } = useContext(FavoritesContext)
 
@@ -21,14 +23,14 @@ const GameCard = ({ name, imgs, price, _id, favourite }) => {
     const toggleFav = () => {
         isFav ? removeFromFavorites(_id) : addToFavorites(_id)
         setIsFav(!isFav)
+
     }
 
     return (
 
-        <div class="card2">
+        <div className="card2">
             <Row>
                 <Card className='GameCard mb-2'>
-
                     <Card.Img varian="top" src={imgs[0]} />
                     <Card.Body>
                         <Card.Title>{name}</Card.Title>
@@ -39,12 +41,9 @@ const GameCard = ({ name, imgs, price, _id, favourite }) => {
                                 <Button className='button-86' variant='dark' as='div'>More details</Button>
                             </Link>
                             <Button className='button-86' onClick={() => addItem(_id)} variant='dark' as='div'>Add to cart</Button>
+
                         </div>
-
-                        {/* <Button className='button-86' onClick={() => removeItem(_id)} variant='dark' as='div'>Remove Item</Button> */}
                         <img className='image' onClick={() => toggleFav()} src={isFav ? lover : heart} />
-
-
                     </Card.Body>
                 </Card>
             </Row >

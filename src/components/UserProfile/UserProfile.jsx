@@ -10,7 +10,7 @@ export default function UserProfile({ user }) {
             <Container>
                 <Row>
                     <Col md="4" span="4">
-                        <img src={user.avatar} alt="user img" />
+
                         <h3>Name: {user.name}</h3>
                         <h4>Username: {user.username}</h4>
                         <h5>E-mail: {user.email}</h5>

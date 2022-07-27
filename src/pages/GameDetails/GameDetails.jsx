@@ -8,6 +8,7 @@ import heart from './../../Images/heart.png'
 import lover from './../../Images/lover.png'
 import { FavoritesContext } from "../../contexts/favorites.context"
 import { useContext } from "react"
+import { AuthContext } from '../../contexts/auth.context'
 import gamesServices from "../../services/game.services"
 
 const GameDetails = () => {
@@ -17,7 +18,7 @@ const GameDetails = () => {
   const [game, setGame] = useState({})
   const [isFav, setIsFav] = useState(false)
   const [favorites, setFavorites] = useState([])
-
+  const { user } = useContext(AuthContext)
   const toggleFav = () => {
     isFav ? removeFromFavorites(game._id) : addToFavorites(game._id)
     setIsFav(!isFav)
@@ -63,7 +64,7 @@ const GameDetails = () => {
           <img className='image' onClick={() => toggleFav()} src={isFav ? lover : heart} />
 
           <Link to={`/game-update/${game_id}`}>
-            <Button className='button-86' as="div">Update game</Button>
+            <h1>{user?.role === 'ADMIN' && <Button className='button-86' as="div">Update game</Button>}</h1>
           </Link>
 
         </Col>

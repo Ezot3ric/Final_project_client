@@ -48,17 +48,17 @@ const GamesPage = () => {
     }
 
     const filterGames = e => {
-
         gamesServices
             .filterGames(e.target.value)
             .then(({ data }) => setGames(data))
             .catch(err => console.error(err))
     }
 
+
     return (
         <div className='GamePage'>
             <Container>
-                <h1> {user && <Button className="button-85" as="href" onClick={openModal}>Add a new game</Button>} </h1>
+                <h1> {user?.role === 'ADMIN' && <Button className="button-85" as="href" onClick={openModal}>Add a new game</Button>} </h1>
                 <hr />
                 <Row>
                     <Col>

@@ -27,7 +27,6 @@ const LogInForm = () => {
         e.preventDefault()
 
         authService
-
             .login(loginData)
             .then(({ data }) => {
                 storeToken(data.authToken)
@@ -45,6 +44,7 @@ const LogInForm = () => {
             <h1>Log In</h1>
 
             <Form onSubmit={handleSubmit}>
+
                 <Form.Group className="mb-3" controlId="email">
                     <Form.Label>email</Form.Label>
                     <Form.Control type="text" value={email} onChange={handleInputChange} name="email" />

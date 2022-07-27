@@ -3,6 +3,8 @@ import { useContext, useEffect } from 'react'
 import { Button } from 'react-bootstrap'
 import { CartContext } from '../../contexts/cart.context'
 import { Container, Row, Col } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import './Cart.css'
 
 
 export default function Cart() {
@@ -15,11 +17,13 @@ export default function Cart() {
 
     }, [])
 
+
+
     return (
 
         <>
             <div>
-                <h1>Articles in your cart</h1>
+                <h1 className='CarTextTitle'>Articles in your cart</h1>
             </div>
 
             <Container>
@@ -98,7 +102,9 @@ export default function Cart() {
                             </Row>
 
                             <div style={{ marginTop: '10px' }} className='d-flex justify-content-center'>
-                                <button onClick={() => alert('Implement Checkout!')}>Checkout</button>
+                                <Link to="/cart">
+                                    <Button className='button-85' as='div'>Buy</Button>
+                                </Link>
                             </div>
 
                         </Col>
