@@ -8,13 +8,14 @@ import { AuthContext } from '../../contexts/auth.context'
 import GameForm from './../../components/GameForm/GameForm'
 import GamesFilter from '../../components/GamesFilter/GamesFilter'
 import gamesServices from '../../services/game.services'
+import favoritesService from '../../services/favorites.services'
 
 
 const GamesPage = () => {
 
     const [games, setGames] = useState([])
 
-    const [favorites, setFavorites] = useState([])
+    const [favorites, setFavorites] = useState(undefined)
 
     const [showModal, setShowModal] = useState(false)
 
@@ -26,13 +27,25 @@ const GamesPage = () => {
         loadGames()
     }, [])
 
+    useEffect(() => {
+        user && getFavorites()
+    }, [user])
+
+
+    const getFavorites = () => {
+        favoritesService
+            .getAllFavorites()
+            .then(({ data }) => setFavorites(data))
+            .catch(err => console.log(err))
+    }
+
     const loadGames = () => {
         gameServices
             .getGames()
             .then(({ data }) => {
-                setGames(data.gamesList)
-                setFavorites(data.favorites)
-                setShowMessage({ show: true, title: `We loader ${data.gamesList.length} games`, text: `You got it man!` })
+                setGames(data)
+                // setFavorites(data.favorites)
+                //setShowMessage({ show: true, title: `We loader ${data.gamesList.length} games`, text: `You got it man!` })
             })
             .catch(err => console.error(err))
     }

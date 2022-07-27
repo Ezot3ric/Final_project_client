@@ -20,6 +20,10 @@ class FavoritesService {
         })
     }
 
+    getAllFavorites = () => {
+        return this.api.get('/favorite-games')
+    }
+
     addFavorite = game_id => {
         return this.api.put(`/addToFavorites/${game_id}`)
     }
