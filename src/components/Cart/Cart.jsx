@@ -1,5 +1,6 @@
 import React from 'react'
 import { useContext, useEffect } from 'react'
+import { Button } from 'react-bootstrap'
 import { CartContext } from '../../contexts/cart.context'
 
 export default function Cart() {
@@ -57,7 +58,7 @@ export default function Cart() {
                     </div>
                     <hr />
                     <div className="row">
-                        <button onClick={() => alert('Implement Checkout!')}>Checkout</button>
+                        <Button href="/cart/payment" variant="dark ">Buy</Button>
                     </div>
                 </>
             )}

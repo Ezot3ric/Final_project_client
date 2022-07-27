@@ -10,10 +10,11 @@ export default function UserProfile({ user }) {
             <Container>
                 <Row>
                     <Col md="8" span="4">
-                        <img src={user.avatar} alt="user img" />
+
                         <h3>Name: {user.name}</h3>
-                        <p>Username: {user.username}</p>
-                        <p>E-mail: {user.email}</p>
+                        <h4>Username: {user.username}</h4>
+                        <h5>E-mail: {user.email}</h5>
+                        <img src={user.avatar} alt="userimg" />
                         <Link to={`/my-profile/edit`}>
                             <div className="d-grid mb-6">
                                 <Button variant='dark' href="my-profile/edit" as='div'>Edit Profile</Button>

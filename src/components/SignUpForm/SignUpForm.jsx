@@ -53,7 +53,7 @@ const SignUpForm = () => {
 
     return (
         <>
-            <h1>Sign Up</h1>
+
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="name">
                     <Form.Label></Form.Label>

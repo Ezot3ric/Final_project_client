@@ -20,8 +20,7 @@ export default function UserUpdateForm() {
     const [userData, setUserData] = useState({
         name: '',
         username: '',
-        email: '',
-        password: ''
+        email: ''
     })
 
     const { name, username, email, password } = userData
@@ -32,10 +31,10 @@ export default function UserUpdateForm() {
         getUser(user_id)
             .then(({ data }) => {
                 const {
-                    name, username, email, password
+                    name, username, email
                 } = data
                 const updateUser = {
-                    name, username, email, password
+                    name, username, email
                 }
                 setUserData(updateUser)
                 setIsUserLoading(false)
@@ -105,11 +104,6 @@ export default function UserUpdateForm() {
                             <Form.Group className="mb-3" controlId="email">
                                 <Form.Label>email</Form.Label>
                                 <Form.Control type="text" value={email} onChange={handleInputChange} name="email" />
-                            </Form.Group>
-
-                            <Form.Group className="mb-3" controlId="password">
-                                <Form.Label>password</Form.Label>
-                                <Form.Control type="password" value={password} onChange={handleInputChange} name="password" />
                             </Form.Group>
 
                             <div className="d-grid">

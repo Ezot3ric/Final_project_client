@@ -1,10 +1,16 @@
+import { Col, Container, Row } from 'react-bootstrap'
 
 const GamesFilter = ({ filterGames }) => {
 
     return (
-        <div className="FilterGames">
-            <input type="text" placeholder="Search for name..." onChange={filterGames} />
-        </div>
+        <Container>
+            <div className='filterStyle'>
+                <div className="FilterGames">
+                    <input type="text" placeholder="Search for name..." onChange={filterGames} />
+                    <hr />
+                </div>
+            </div>
+        </Container>
     )
 }
 

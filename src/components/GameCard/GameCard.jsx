@@ -7,6 +7,7 @@ import lover from './../../Images/lover.png'
 import { CartContext } from './../../contexts/cart.context'
 import { FavoritesContext } from './../../contexts/favorites.context'
 
+
 const GameCard = ({ name, imgs, price, _id, favourite }) => {
 
     //CART
@@ -22,41 +23,33 @@ const GameCard = ({ name, imgs, price, _id, favourite }) => {
         setIsFav(!isFav)
     }
 
-    //USER  
     return (
 
-        <Row>
-            <Card className='GameCard mb-6'>
+        <div class="card2">
+            <Row>
+                <Card className='GameCard mb-2'>
 
-                <Card.Img varian="top" src={imgs[0]} />
-                <Card.Body>
-                    <Card.Title>{name}</Card.Title>
-                    <Card.Subtitle>{price}$</Card.Subtitle>
-                    <hr />
-                    <Link to={`/details/${_id}`}>
-                        <div className="d-grid mb-6">
-                            <Button variant='dark' as='div'>More details</Button>
+                    <Card.Img varian="top" src={imgs[0]} />
+                    <Card.Body>
+                        <Card.Title>{name}</Card.Title>
+                        <Card.Subtitle>{price}$</Card.Subtitle>
+                        <hr />
+                        <div>
+                            <Link to={`/details/${_id}`}>
+                                <Button className='button-86' variant='dark' as='div'>More details</Button>
+                            </Link>
+                            <Button className='button-86' onClick={() => addItem(_id)} variant='dark' as='div'>Add to cart</Button>
                         </div>
-                    </Link>
-                    <Link to={`/game-update/${_id}`}>
 
-                        <div className="d-grid">
-                            <Button variant="dark" as="div">Update</Button>
-                        </div> <br />
-                    </Link>
-
-                    <div className="d-grid mb-6">
-                        <Button onClick={() => addItem(_id)} variant='dark' as='div'>Add to cart</Button>
-                        <Button onClick={() => removeItem(_id)} variant='dark' as='div'>Remove Item</Button>
-                    </div>
-
-                    <div className='button'>
+                        {/* <Button className='button-86' onClick={() => removeItem(_id)} variant='dark' as='div'>Remove Item</Button> */}
                         <img className='image' onClick={() => toggleFav()} src={isFav ? lover : heart} />
-                    </div>
 
-                </Card.Body>
-            </Card>
-        </Row>
+
+                    </Card.Body>
+                </Card>
+            </Row >
+        </div>
+
     )
 }
 

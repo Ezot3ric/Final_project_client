@@ -1,4 +1,5 @@
-import { Container, Col, Carousel, Row } from "react-bootstrap"
+import { Container, Col, Carousel, Row, Button } from "react-bootstrap"
+import { Link } from 'react-router-dom'
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import gameService from "../../services/game.services"
@@ -60,6 +61,10 @@ const GameDetails = () => {
           <p>Available for:{game.platforms}</p>
           <p>Price: {game.price}$</p>
           <img className='image' onClick={() => toggleFav()} src={isFav ? lover : heart} />
+
+          <Link to={`/game-update/${game_id}`}>
+            <Button className='button-86' as="div">Update game</Button>
+          </Link>
 
         </Col>
 

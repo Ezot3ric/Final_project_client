@@ -13,7 +13,9 @@ import gamesServices from '../../services/game.services'
 const GamesPage = () => {
 
     const [games, setGames] = useState([])
+
     const [favorites, setFavorites] = useState([])
+
     const [showModal, setShowModal] = useState(false)
 
     const { setShowMessage } = useContext(MessageContext)
@@ -54,9 +56,9 @@ const GamesPage = () => {
     }
 
     return (
-        <>
+        <div className='GamePage'>
             <Container>
-                <h1> {user && <Button as="href" variant="dark" onClick={openModal}>Add a new game</Button>} </h1>
+                <h1> {user && <Button className="button-85" as="href" onClick={openModal}>Add a new game</Button>} </h1>
                 <hr />
                 <Row>
                     <Col>
@@ -76,7 +78,7 @@ const GamesPage = () => {
             </Modal>
 
 
-        </>
+        </div>
 
     )
 }
