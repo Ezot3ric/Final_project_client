@@ -6,7 +6,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 import './Cart.css'
 
 
-export default function Cart() {
+export default function SecondaryCart() {
 
     const { items, getItems, totalPrice, shippingPrice, addItem, removeItem, itemsPrice } = useContext(CartContext)
 
@@ -111,12 +111,3 @@ export default function Cart() {
         </>
     )
 }
-
-
-
-
-
-
-
-
-
