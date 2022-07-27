@@ -9,8 +9,8 @@ export default function UserProfile({ user }) {
         <>
             <Container>
                 <Row>
-                    <Col md="8" span="4">
-
+                    <Col md="4" span="4">
+                        <img src={user.avatar} alt="user img" />
                         <h3>Name: {user.name}</h3>
                         <h4>Username: {user.username}</h4>
                         <h5>E-mail: {user.email}</h5>
@@ -21,9 +21,10 @@ export default function UserProfile({ user }) {
                             </div>
                         </Link>
                     </Col>
+                    <h1>Wishlist</h1>
                     {
                         user.favorites?.map((favorite) => (
-                            <Col md="4" span="4" key={favorite._id}>
+                            <Col md="2" span="4" key={favorite._id}>
                                 <FavoritesCard {...favorite} />
                             </Col>
                         ))
