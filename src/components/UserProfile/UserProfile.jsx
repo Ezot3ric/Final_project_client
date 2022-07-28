@@ -13,6 +13,7 @@ export default function UserProfile({ user }) {
                 <Row>
                     <Card className='GameCard mb-2'></Card>
                     <Col md="4" span="4">
+
                         <h2>User Profile</h2>
                         <hr />
                         <div className='avatar'>

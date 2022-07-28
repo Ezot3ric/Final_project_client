@@ -57,41 +57,42 @@ const SignUpForm = ({ fireFinalActions }) => {
 
     return (
         <>
+            <div className='button-86'>
+                <Form onSubmit={handleSubmit}>
+                    <Form.Group className="mb-3" controlId="name">
+                        <Form.Label ></Form.Label>
+                        <Form.Control type="text" value={name} onChange={handleInputChange} name="name" placeholder="Name" />
+                    </Form.Group>
 
-            <Form onSubmit={handleSubmit}>
-                <Form.Group className="mb-3" controlId="name">
-                    <Form.Label ></Form.Label>
-                    <Form.Control type="text" value={name} onChange={handleInputChange} name="name" placeholder="Name" />
-                </Form.Group>
+                    <Form.Group className="mb-3" controlId="username">
+                        <Form.Label></Form.Label>
+                        <Form.Control type="text" value={username} onChange={handleInputChange} name="username" placeholder="Username" />
+                    </Form.Group>
 
-                <Form.Group className="mb-3" controlId="username">
-                    <Form.Label></Form.Label>
-                    <Form.Control type="text" value={username} onChange={handleInputChange} name="username" placeholder="Username" />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="email">
-                    <Form.Label></Form.Label>
-                    <Form.Control type="text" value={email} onChange={handleInputChange} name="email" placeholder="Email" />
-                </Form.Group>
-
-
-                <Form.Group className="mb-3" controlId="password">
-                    <Form.Label></Form.Label>
-                    <Form.Control type="password" value={password} onChange={handleInputChange} name="password" placeholder="Password" />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="avatar">
-                    <Form.Label>Avatar</Form.Label>
-                    <Form.Control type="file" onChange={handleFileInput} name="avatar" />
-                </Form.Group>
+                    <Form.Group className="mb-3" controlId="email">
+                        <Form.Label></Form.Label>
+                        <Form.Control type="text" value={email} onChange={handleInputChange} name="email" placeholder="Email" />
+                    </Form.Group>
 
 
+                    <Form.Group className="mb-3" controlId="password">
+                        <Form.Label></Form.Label>
+                        <Form.Control type="password" value={password} onChange={handleInputChange} name="password" placeholder="Password" />
+                    </Form.Group>
 
-                <div className="d-grid">
-                    <Button className='button-85' type="submit" >Sign Up</Button>
-                </div>
+                    <Form.Group className="mb-3" controlId="avatar">
+                        <Form.Label></Form.Label>
+                        <Form.Control type="file" onChange={handleFileInput} name="avatar" />
+                    </Form.Group>
 
-            </Form>
+
+
+                    <div className="d-grid">
+                        <Button className='button-85' type="submit" >Sign Up</Button>
+                    </div>
+
+                </Form>
+            </div>
         </>
     )
 }

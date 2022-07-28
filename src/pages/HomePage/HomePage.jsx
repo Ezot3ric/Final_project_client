@@ -5,13 +5,10 @@ const HomePage = () => {
 
     return (
 
-        <Carousel fade interval={3000}>
+        <Carousel fade>
             <Carousel.Item>
-                <img
-                    className="d-block w-100"
-                    src="./images/HomePage.jpg"
-                    alt="First slide"
-                />
+                <div className='pic-background' style={{ backgroundImage: 'url(https://res.cloudinary.com/dpsettvmg/image/upload/v1659013769/HomePage_lhkykh.jpg)' }}></div>
+
                 <Carousel.Caption>
                     <h3 className="text-color">Resident Evil Village</h3>
                     <p>Set a few years after the horrifying events in the critically acclaimed
@@ -23,12 +20,7 @@ const HomePage = () => {
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-                <img
-                    className="d-block w-100"
-                    src="./images/slide2.jpg"
-                    alt="Second slide"
-                />
-
+                <div className='pic-background' style={{ backgroundImage: 'url(https://res.cloudinary.com/dpsettvmg/image/upload/v1659013774/slide2_oeihai.jpg)' }}></div>
                 <Carousel.Caption>
                     <h3 className="text-color">The Last of Us part II</h3>
                     <p>Five years after their dangerous journey across the post-pandemic United States,
@@ -38,18 +30,12 @@ const HomePage = () => {
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-
-                <img
-                    className="d-block w-100"
-                    src="./images/slide3.jpg"
-                    alt="Third slide"
-                />
+                <div className='pic-background' style={{ backgroundImage: 'url(https://res.cloudinary.com/dpsettvmg/image/upload/v1659014254/slide3_zw224k.jpg)' }}></div>
 
                 <Carousel.Caption>
-                    <h3 className="text-color">Rend: Prologue</h3>
+                    <h3 className="text-color">Assassin's Creed Valhalla</h3>
                     <p>
-                        A Horror Mystery set in a house filled with cryptic history. Search for notes and engage
-                        in the mystery of this house.
+                        Embrace your destiny as Eivor. Discover and conquer the broken Kingdoms of England and grow your Viking legend.
                     </p>
                 </Carousel.Caption>
             </Carousel.Item>

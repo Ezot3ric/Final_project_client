@@ -1,3 +1,15 @@
+.carousel {
+    height: 90vh;
+}
+
+.pic-background {
+    height: 95vh;
+    width: 100vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .text-color {
     color: white;
 }

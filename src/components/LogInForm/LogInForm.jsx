@@ -44,25 +44,25 @@ const LogInForm = ({ fireFinalActions }) => {
 
     return (
         <>
+            <div className='button-86'>
+                <Form onSubmit={handleSubmit}>
 
-            <Form onSubmit={handleSubmit}>
+                    <Form.Group className="mb-3" controlId="email">
+                        <Form.Label></Form.Label>
+                        <Form.Control type="text" value={email} onChange={handleInputChange} name="email" placeholder="Email" />
+                    </Form.Group>
 
-                <Form.Group className="mb-3" controlId="email">
-                    <Form.Label>email</Form.Label>
-                    <Form.Control type="text" value={email} onChange={handleInputChange} name="email" />
-                </Form.Group>
+                    <Form.Group className="mb-3" controlId="password">
+                        <Form.Label></Form.Label>
+                        <Form.Control type="password" value={password} onChange={handleInputChange} name="password" placeholder="Password" />
+                    </Form.Group>
 
-                <Form.Group className="mb-3" controlId="password">
-                    <Form.Label>password</Form.Label>
-                    <Form.Control type="password" value={password} onChange={handleInputChange} name="password" />
-                </Form.Group>
+                    <div className="d-grid">
+                        <Button className="button-86" type="submit">Log In</Button>
+                    </div>
+                </Form>
 
-                <div className="d-grid">
-                    <Button className="button-86" type="submit">Log In</Button>
-                </div>
-            </Form>
-
-
+            </div>
 
         </>
     )

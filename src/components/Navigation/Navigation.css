@@ -1,5 +1,5 @@
 .color-nav {
-    background-color: #6a6a83;
+    background-color: #333344;
 
 }
 
@@ -8,4 +8,33 @@ button.badge {
     border: none;
     color: #ffffff;
     width: 1.5rem;
+}
+
+.NavTextTitle {
+    font-size: 1.5em;
+    color: white;
+    text-decoration: none;
+    padding-left: 10px;
+
+}
+
+.NavText {
+    font-size: 1.3em;
+    color: white;
+    text-decoration: none;
+    padding-left: 20px;
+    text-transform: capitalize;
+}
+
+.NavTextCart {
+    font-size: 1.3em;
+    color: white;
+    text-decoration: none;
+
+
+}
+
+svg {
+    margin-left: 20px;
+
 }
