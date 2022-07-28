@@ -87,9 +87,11 @@ const GameDetails = () => {
 
   return (
     <Container>
-      <Row>
-        <div className="GameDetails">
-          <Col md={{ span: 6 }}>
+
+      <div className="GameDetails">
+
+        <Row>
+          <Col md={6} span={6}>
 
             <h3>{game.name}</h3>
             <p>{game.description}</p>
@@ -100,15 +102,9 @@ const GameDetails = () => {
             <p>Price: {game.price}$</p>
             <img className='image' onClick={() => toggleFav()} src={isFav ? lover : heart} />
 
-            <Link to={`/game-update/${game_id}`}>
-              <h1>{user?.role === 'ADMIN' && <Button className='button-86' as="div">Update game</Button>}</h1>
-            </Link>
-            <h1>{user?.role === 'ADMIN' && <Button className='button-86' onClick={handleDelete} variant='dark' as='div'>Delete Game</Button>}</h1>
-            <Button className='button-86' onClick={() => addItem(game._id)} variant='dark' as='div'>Add to cart</Button>
-
           </Col>
 
-          <Col md={{ span: 4 }}>
+          <Col md={6} span={6}>
 
             <Carousel>
               {
@@ -125,8 +121,15 @@ const GameDetails = () => {
 
             </Carousel>
           </Col>
+        </Row>
+        <Link to={`/game-update/${game_id}`}>
+          <h1>{user?.role === 'ADMIN' && <Button className='button-86' as="div">Update game</Button>}</h1>
+        </Link>
+        <h1>{user?.role === 'ADMIN' && <Button className='button-86' onClick={handleDelete} variant='dark' as='div'>Delete Game</Button>}</h1>
+        <div className="d-flex justify-content-center">
+          <Button className='button-86' onClick={() => addItem(game._id)} variant='dark' as='div'>Add to cart</Button>
         </div>
-      </Row>
+      </div>
     </Container >
   )
 }

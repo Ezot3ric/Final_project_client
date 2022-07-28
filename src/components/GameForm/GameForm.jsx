@@ -49,13 +49,18 @@ const GameForm = ({ fireFinalActions }) => {
         setIsLoading(true)
 
         const formData = new FormData()
-        formData.append('imageData', e.target.files[0])
+
+        for (const file of e.target.files) {
+            formData.append('imageData', file)
+        }
+
+        console.log(formData)
 
         uploadServices
             .uploadImage(formData)
             .then(({ data }) => {
                 setIsLoading(false)
-                setGameData({ ...gameData, imgs: data.cloudinary_url })
+                setGameData({ ...gameData, imgs: data })
                     .catch(err => console.log(err))
             })
     }
@@ -75,7 +80,7 @@ const GameForm = ({ fireFinalActions }) => {
 
             <Form.Group className="mb-3" controlId="imgs">
                 <Form.Label>Image</Form.Label>
-                <Form.Control type="file" onChange={handleFileInput} name="imgs" />
+                <Form.Control type="file" onChange={handleFileInput} name="imgs" multiple />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="description">
