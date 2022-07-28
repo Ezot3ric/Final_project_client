@@ -29,8 +29,15 @@ function GameProviderWrapper(props) {
             .catch(err => console.error(err))
     }
 
+    const deleteGame = (game_id) => {
+        gameServices
+            .deleteGame(game_id)
+            .then(() => loadGames)
+            .catch(err => console.log(err))
+    }
+
     return (
-        <GameContext.Provider value={{ updateGame, games, loadGames, getOneGame }}>
+        <GameContext.Provider value={{ updateGame, games, loadGames, getOneGame, deleteGame }}>
             {props.children}
         </GameContext.Provider>
     )

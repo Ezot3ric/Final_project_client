@@ -7,7 +7,6 @@ import lover from './../../Images/lover.png'
 import { CartContext } from './../../contexts/cart.context'
 import { FavoritesContext } from './../../contexts/favorites.context'
 import { MessageContext } from '../../contexts/userMessage.context'
-import cartService from '../../services/cart.services'
 import { useEffect } from 'react'
 
 
