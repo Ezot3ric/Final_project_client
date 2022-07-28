@@ -4,9 +4,10 @@ const GamesFilter = ({ filterGames }) => {
 
     return (
         <Container>
+
             <div className='filterStyle'>
                 <div className="FilterGames">
-                    <input type="text" placeholder="Search for name..." onChange={filterGames} />
+                    <input type="text" placeholder="Search game for name..." onChange={filterGames} />
                     <hr />
                 </div>
             </div>

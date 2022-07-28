@@ -1,11 +1,11 @@
-import { Carousel, Container } from 'react-bootstrap'
+import { Carousel } from 'react-bootstrap'
 import './HomePage.css'
 
 const HomePage = () => {
 
     return (
 
-        <Carousel fade>
+        <Carousel fade interval={3000}>
             <Carousel.Item>
                 <img
                     className="d-block w-100"
@@ -38,7 +38,7 @@ const HomePage = () => {
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-                
+
                 <img
                     className="d-block w-100"
                     src="./images/slide3.jpg"

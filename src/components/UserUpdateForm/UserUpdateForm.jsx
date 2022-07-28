@@ -86,7 +86,7 @@ export default function UserUpdateForm() {
                         <Loader />
 
                         :
-                        <div className='UserUpdate'>
+                        <div className='button-86'>
                             <Form onSubmit={handleSubmit}>
                                 <Form.Group className="mb-3" controlId="name">
                                     <Form.Label>Name</Form.Label>
@@ -109,7 +109,7 @@ export default function UserUpdateForm() {
                                 </Form.Group>
 
                                 <div className="d-grid">
-                                    <Button variant="dark" type="submit" disabled={isLoading}>{isLoading ? 'One moment please' : 'Update user'}</Button>
+                                    <Button className='button-86' type="submit" disabled={isLoading}>{isLoading ? 'One moment please' : 'Update user'}</Button>
                                 </div>
 
                             </Form>

@@ -45,7 +45,7 @@ const GamesPage = () => {
             .then(({ data }) => {
                 setGames(data)
                 // setFavorites(data.favorites)
-                setShowMessage({ show: true, title: `We have ${data.gamesList.length} games`, text: `You got it man!` })
+
             })
             .catch(err => console.error(err))
     }

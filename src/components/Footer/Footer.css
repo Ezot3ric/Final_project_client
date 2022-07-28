@@ -1,3 +1,10 @@
 .Footer {
+    color: white;
+    font-size: .7em;
+    text-align: center;
+    padding: 5px;
     position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
 }

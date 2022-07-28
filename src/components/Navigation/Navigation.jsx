@@ -27,7 +27,7 @@ const Navigator = () => {
         logoutUser()
     }
     const totalItems = items.reduce((acc, curr) => acc + curr.quantity, 0)
-    console.log(totalItems)
+
     const openSignUpModal = () => setShowSignUpModal(true)
     const closeSignUpModal = () => setShowSignUpModal(false)
 
@@ -47,7 +47,7 @@ const Navigator = () => {
 
     return (
         <>
-            <Navbar className="color-nav" expand="lg" variant="light" >
+            <Navbar className="color-nav" expand="lg" variant="light">
                 <Container>
                     <Navbar.Brand href="/">You Got It Man</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
