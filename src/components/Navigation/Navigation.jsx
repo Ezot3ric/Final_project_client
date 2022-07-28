@@ -87,11 +87,8 @@ const Navigator = () => {
                                         </Nav.Link>
 
                                         <Nav.Link as="span">
-<<<<<<< HEAD
                                             <Link to="/secondary-cart">
-                                                <NavDropdown.Item onClick={openCartModal}>Cart</NavDropdown.Item>
-=======
-                                            <Link to="/cart">
+
 
                                                 <NavDropdown.Item onClick={openCartModal}>
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
@@ -99,7 +96,7 @@ const Navigator = () => {
                                                     </svg> {' '}
                                                     {items.length ? (<button className="badge">{totalItems}</button>) : ('')}
                                                 </NavDropdown.Item>
->>>>>>> 90bf738267df2a3b415b7e017bfc281bd7bc4ef5
+
                                             </Link>
                                         </Nav.Link>
 

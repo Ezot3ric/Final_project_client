@@ -1,18 +1,8 @@
 import { Container, Col, Carousel, Row, Button } from "react-bootstrap"
-<<<<<<< HEAD
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import { useEffect, useState, useContext } from "react"
 
 import './GameDetails.css'
-
-import gamesServices from "../../services/game.services"
-=======
-import { Link, useNavigate } from 'react-router-dom'
-import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
->>>>>>> 90bf738267df2a3b415b7e017bfc281bd7bc4ef5
-import gameService from "../../services/game.services"
-
 import Rating from './../../components/Rating/Rating'
 
 import heart from './../../Images/heart.png'
@@ -20,15 +10,11 @@ import lover from './../../Images/lover.png'
 
 import { FavoritesContext } from "../../contexts/favorites.context"
 import { AuthContext } from '../../contexts/auth.context'
-<<<<<<< HEAD
 
-=======
 import gamesServices from "../../services/game.services"
 import favoritesService from "../../services/favorites.services"
 import { CartContext } from "../../contexts/cart.context"
 import { GameContext } from "../../contexts/game.context"
-import { Navigate } from "react-router-dom"
->>>>>>> 90bf738267df2a3b415b7e017bfc281bd7bc4ef5
 
 const GameDetails = () => {
 
@@ -92,7 +78,7 @@ const GameDetails = () => {
 
 
   useEffect(() => {
-    gameService
+    gamesServices
       .getOneGame(game_id)
       .then(({ data }) => setGame(data))
       .catch(err => console.error(err))

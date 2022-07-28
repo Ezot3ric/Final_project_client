@@ -9,11 +9,7 @@ import lover from './../../Images/lover.png'
 import { CartContext } from './../../contexts/cart.context'
 import { FavoritesContext } from './../../contexts/favorites.context'
 import { MessageContext } from '../../contexts/userMessage.context'
-<<<<<<< HEAD
 
-=======
-import { useEffect } from 'react'
->>>>>>> 90bf738267df2a3b415b7e017bfc281bd7bc4ef5
 
 
 const GameCard = ({ name, imgs, price, _id, favourite }) => {
