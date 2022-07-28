@@ -69,7 +69,7 @@ const Navigator = () => {
                                 !user
                                     ?
                                     <>
-                                        <NavDropdown title="User" id="collasible-nav-dropdown">
+                                        <NavDropdown className='NavText' title="User" id="collasible-nav-dropdown">
                                             <Link to="/signup" className='NavText'>
                                                 <NavDropdown.Item onClick={openSignUpModal}>Sign Up</NavDropdown.Item>
                                             </Link>
