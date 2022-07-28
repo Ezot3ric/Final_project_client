@@ -1,8 +1,10 @@
 import { useContext, useState } from 'react'
 import { Form, Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
+
 import authService from '../../services/auth.services'
 import uploadServices from './../../services/upload.services'
+
 import './SignUpForm.css'
 
 import { MessageContext } from '../../contexts/userMessage.context'

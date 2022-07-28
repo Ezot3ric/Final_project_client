@@ -10,8 +10,6 @@ import { CartContext } from './../../contexts/cart.context'
 import { FavoritesContext } from './../../contexts/favorites.context'
 import { MessageContext } from '../../contexts/userMessage.context'
 
-
-
 const GameCard = ({ name, imgs, price, _id, favourite }) => {
 
     //CART
