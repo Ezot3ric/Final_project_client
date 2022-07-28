@@ -44,12 +44,9 @@ const GamesPage = () => {
             .getGames()
             .then(({ data }) => {
                 setGames(data)
-                // setFavorites(data.favorites)
-
             })
             .catch(err => console.error(err))
     }
-
 
     const openModal = () => setShowModal(true)
     const closeModal = () => setShowModal(false)
@@ -66,7 +63,6 @@ const GamesPage = () => {
             .then(({ data }) => setGames(data))
             .catch(err => console.error(err))
     }
-
 
     return (
         <div className='GamePage'>
@@ -89,8 +85,6 @@ const GamesPage = () => {
                     <GameForm fireFinalActions={fireFinalActions} />
                 </Modal.Body>
             </Modal>
-
-
         </div>
 
     )

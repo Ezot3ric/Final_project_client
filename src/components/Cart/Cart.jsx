@@ -3,21 +3,18 @@ import { useContext, useEffect } from 'react'
 import { Button } from 'react-bootstrap'
 import { CartContext } from '../../contexts/cart.context'
 import { Container, Row, Col } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './Cart.css'
-
 
 export default function Cart() {
 
     const { items, getItems, totalPrice, shippingPrice, addItem, removeItem, itemsPrice } = useContext(CartContext)
-    console.log(items)
+    const navigate = useNavigate()
     useEffect(() => {
 
         getItems()
 
     }, [])
-
-
 
     return (
 
@@ -36,7 +33,6 @@ export default function Cart() {
                             <Col><div className='d-flex justify-content-end'>Price</div></Col>
                         </Row>
 
-
                         <hr />
                         {
                             !items.length ?
@@ -48,7 +44,7 @@ export default function Cart() {
                                     <>
                                         <Row key={item._id}>
                                             <Col >
-                                                <div className='d-flex justify-content-start align-items-center'>
+                                                <div onClick={() => navigate(`/details/${item.product._id}`)} className='d-flex justify-content-start align-items-center'>
                                                     <div>
                                                         <img style={{ width: "150px", height: "130px" }} src={item.product.imgs} />
                                                     </div>
