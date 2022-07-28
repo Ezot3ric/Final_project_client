@@ -1,10 +1,16 @@
 import { Container, Col, Carousel, Row, Button } from "react-bootstrap"
+<<<<<<< HEAD
 import { Link, useParams } from 'react-router-dom'
 import { useEffect, useState, useContext } from "react"
 
 import './GameDetails.css'
 
 import gamesServices from "../../services/game.services"
+=======
+import { Link, useNavigate } from 'react-router-dom'
+import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
+>>>>>>> 90bf738267df2a3b415b7e017bfc281bd7bc4ef5
 import gameService from "../../services/game.services"
 
 import Rating from './../../components/Rating/Rating'
@@ -14,29 +20,65 @@ import lover from './../../Images/lover.png'
 
 import { FavoritesContext } from "../../contexts/favorites.context"
 import { AuthContext } from '../../contexts/auth.context'
+<<<<<<< HEAD
 
+=======
+import gamesServices from "../../services/game.services"
+import favoritesService from "../../services/favorites.services"
+import { CartContext } from "../../contexts/cart.context"
+import { GameContext } from "../../contexts/game.context"
+import { Navigate } from "react-router-dom"
+>>>>>>> 90bf738267df2a3b415b7e017bfc281bd7bc4ef5
 
 const GameDetails = () => {
 
   const { addToFavorites, removeFromFavorites } = useContext(FavoritesContext)
 
   const [game, setGame] = useState({})
-  const [isFav, setIsFav] = useState(false)
-  const [favorites, setFavorites] = useState([])
+  const [isFav, setIsFav] = useState(undefined)
+  const [favorites, setFavorites] = useState(undefined)
+  const { addItem, removeItem } = useContext(CartContext)
 
   const { user } = useContext(AuthContext)
+
+  const favourite = favorites?.includes(game._id)
 
   const toggleFav = () => {
     isFav ? removeFromFavorites(game._id) : addToFavorites(game._id)
     setIsFav(!isFav)
   }
 
+  const { deleteGame } = useContext(GameContext)
+  const navigate = useNavigate()
+
   const { game_id } = useParams()
+
+
+  const handleDelete = () => {
+    deleteGame(game_id)
+    navigate('/games-list')
+  }
 
   useEffect(() => {
     loadGames()
   }, [])
 
+  useEffect(() => {
+    user && getFavorites()
+  }, [user])
+
+  useEffect(() => {
+    setIsFav(favourite)
+  }, [favourite])
+
+
+
+  const getFavorites = () => {
+    favoritesService
+      .getAllFavorites()
+      .then(({ data }) => setFavorites(data))
+      .catch(err => console.log(err))
+  }
 
   const loadGames = () => {
     gamesServices
@@ -75,6 +117,8 @@ const GameDetails = () => {
             <Link to={`/game-update/${game_id}`}>
               <h1>{user?.role === 'ADMIN' && <Button className='button-86' as="div">Update game</Button>}</h1>
             </Link>
+            <h1>{user?.role === 'ADMIN' && <Button className='button-86' onClick={handleDelete} variant='dark' as='div'>Delete Game</Button>}</h1>
+            <Button className='button-86' onClick={() => addItem(game._id)} variant='dark' as='div'>Add to cart</Button>
 
           </Col>
 

@@ -1,9 +1,7 @@
 import './GamesList.css'
 import { Col, Container, Row } from 'react-bootstrap'
 import GameCard from '../GameCard/GameCard'
-import { useEffect } from 'react'
-import { useContext } from 'react'
-import { UserContext } from '../../contexts/user.context'
+
 
 
 

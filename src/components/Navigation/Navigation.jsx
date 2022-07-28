@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 import { AuthContext } from '../../contexts/auth.context'
 import { MessageContext } from '../../contexts/userMessage.context'
+import { CartContext } from '../../contexts/cart.context'
 
 import SignUpForm from './../SignUpForm/SignUpForm'
 import LogInForm from './../LogInForm/LogInForm'
@@ -12,11 +13,11 @@ import Cart from './../Cart/Cart'
 import './Navigation.css'
 import SecondaryCart from '../SecondaryCart/SecondaryCart'
 
-const Navigator = () => {
 
+const Navigator = () => {
+    const { items } = useContext(CartContext)
     const { user, logoutUser } = useContext(AuthContext)
     const { setShowMessage } = useContext(MessageContext)
-
     const [showSignUpModal, setShowSignUpModal] = useState(false)
     const [showLogInModal, setShowLogInModal] = useState(false)
     const [showCartModal, setShowCartModal] = useState(false)
@@ -25,7 +26,8 @@ const Navigator = () => {
         setShowMessage({ show: true, title: 'Good bye!', text: 'Your sesion is closed' })
         logoutUser()
     }
-
+    const totalItems = items.reduce((acc, curr) => acc + curr.quantity, 0)
+    console.log(totalItems)
     const openSignUpModal = () => setShowSignUpModal(true)
     const closeSignUpModal = () => setShowSignUpModal(false)
 
@@ -85,8 +87,19 @@ const Navigator = () => {
                                         </Nav.Link>
 
                                         <Nav.Link as="span">
+<<<<<<< HEAD
                                             <Link to="/secondary-cart">
                                                 <NavDropdown.Item onClick={openCartModal}>Cart</NavDropdown.Item>
+=======
+                                            <Link to="/cart">
+
+                                                <NavDropdown.Item onClick={openCartModal}>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                                    </svg> {' '}
+                                                    {items.length ? (<button className="badge">{totalItems}</button>) : ('')}
+                                                </NavDropdown.Item>
+>>>>>>> 90bf738267df2a3b415b7e017bfc281bd7bc4ef5
                                             </Link>
                                         </Nav.Link>
 
