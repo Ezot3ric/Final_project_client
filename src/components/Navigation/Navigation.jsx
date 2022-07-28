@@ -10,6 +10,7 @@ import LogInForm from './../LogInForm/LogInForm'
 import Cart from './../Cart/Cart'
 
 import './Navigation.css'
+import SecondaryCart from '../SecondaryCart/SecondaryCart'
 
 const Navigator = () => {
 
@@ -84,7 +85,7 @@ const Navigator = () => {
                                         </Nav.Link>
 
                                         <Nav.Link as="span">
-                                            <Link to="/cart">
+                                            <Link to="/secondary-cart">
                                                 <NavDropdown.Item onClick={openCartModal}>Cart</NavDropdown.Item>
                                             </Link>
                                         </Nav.Link>
@@ -123,7 +124,7 @@ const Navigator = () => {
                     <Offcanvas.Title>Cart</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                    <Cart fireFinalActions={fireFinalActions} />
+                    <SecondaryCart fireFinalActions={fireFinalActions} />
                 </Offcanvas.Body>
             </Offcanvas>
 

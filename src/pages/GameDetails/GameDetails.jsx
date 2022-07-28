@@ -1,15 +1,20 @@
 import { Container, Col, Carousel, Row, Button } from "react-bootstrap"
-import { Link } from 'react-router-dom'
-import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from 'react-router-dom'
+import { useEffect, useState, useContext } from "react"
+
+import './GameDetails.css'
+
+import gamesServices from "../../services/game.services"
 import gameService from "../../services/game.services"
+
 import Rating from './../../components/Rating/Rating'
+
 import heart from './../../Images/heart.png'
 import lover from './../../Images/lover.png'
+
 import { FavoritesContext } from "../../contexts/favorites.context"
-import { useContext } from "react"
 import { AuthContext } from '../../contexts/auth.context'
-import gamesServices from "../../services/game.services"
+
 
 const GameDetails = () => {
 
@@ -55,40 +60,42 @@ const GameDetails = () => {
   return (
     <Container>
       <Row>
-        <Col md={{ span: 6 }}>
+        <div className="GameDetails">
+          <Col md={{ span: 6 }}>
 
-          <h3>{game.name}</h3>
-          <p>{game.description}</p>
-          <p>Genre: {game.genre}</p>
-          <p>Released: {game.release}</p>
-          <p>Rating: <Rating>{game.rating}</Rating></p>
-          <p>Available for:{game.platforms}</p>
-          <p>Price: {game.price}$</p>
-          <img className='image' onClick={() => toggleFav()} src={isFav ? lover : heart} />
+            <h3>{game.name}</h3>
+            <p>{game.description}</p>
+            <p>Genre: {game.genre}</p>
+            <p>Released: {game.release}</p>
+            <p>Rating: <Rating>{game.rating}</Rating></p>
+            <p>Available for:{game.platforms}</p>
+            <p>Price: {game.price}$</p>
+            <img className='image' onClick={() => toggleFav()} src={isFav ? lover : heart} />
 
-          <Link to={`/game-update/${game_id}`}>
-            <h1>{user?.role === 'ADMIN' && <Button className='button-86' as="div">Update game</Button>}</h1>
-          </Link>
+            <Link to={`/game-update/${game_id}`}>
+              <h1>{user?.role === 'ADMIN' && <Button className='button-86' as="div">Update game</Button>}</h1>
+            </Link>
 
-        </Col>
+          </Col>
 
-        <Col md={{ span: 4 }}>
+          <Col md={{ span: 4 }}>
 
-          <Carousel>
-            {
-              game?.imgs?.map(el => {
-                return (<Carousel.Item>
-                  <img
-                    className="d-block w-100"
-                    src={el}
-                    alt="game img"
-                  />
-                </Carousel.Item>)
-              })
-            }
+            <Carousel>
+              {
+                game?.imgs?.map(el => {
+                  return (<Carousel.Item>
+                    <img
+                      className="d-block w-100"
+                      src={el}
+                      alt="game img"
+                    />
+                  </Carousel.Item>)
+                })
+              }
 
-          </Carousel>
-        </Col>
+            </Carousel>
+          </Col>
+        </div>
       </Row>
     </Container >
   )

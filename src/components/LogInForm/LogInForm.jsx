@@ -1,11 +1,13 @@
 import { useContext, useState } from "react"
 import { Form, Button } from 'react-bootstrap'
 import { useNavigate } from "react-router-dom"
+import './LogInForm.css'
 
 import authService from '../../services/auth.services'
 
 import { MessageContext } from './../../contexts/userMessage.context'
 import { AuthContext } from "../../contexts/auth.context"
+
 
 const LogInForm = ({ fireFinalActions }) => {
 
@@ -42,7 +44,6 @@ const LogInForm = ({ fireFinalActions }) => {
 
     return (
         <>
-            <h1>Log In</h1>
 
             <Form onSubmit={handleSubmit}>
 
@@ -57,9 +58,12 @@ const LogInForm = ({ fireFinalActions }) => {
                 </Form.Group>
 
                 <div className="d-grid">
-                    <Button variant="dark" type="submit">Log In</Button>
+                    <Button className="button-86" type="submit">Log In</Button>
                 </div>
             </Form>
+
+
+
         </>
     )
 }

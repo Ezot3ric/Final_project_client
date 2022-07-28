@@ -86,7 +86,7 @@ const SignUpForm = ({ fireFinalActions }) => {
 
 
                 <div className="d-grid">
-                    <Button variant="dark" type="submit" >Sign Up</Button>
+                    <Button className='button-85' type="submit" >Sign Up</Button>
                 </div>
 
             </Form>

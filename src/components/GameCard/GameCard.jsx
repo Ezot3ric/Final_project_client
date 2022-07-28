@@ -1,14 +1,15 @@
 import './GameCard.css'
-import { useContext, useState } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { Card, Button, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+
 import heart from './../../Images/heart.png'
 import lover from './../../Images/lover.png'
+
 import { CartContext } from './../../contexts/cart.context'
 import { FavoritesContext } from './../../contexts/favorites.context'
 import { MessageContext } from '../../contexts/userMessage.context'
-import cartService from '../../services/cart.services'
-import { useEffect } from 'react'
+
 
 
 const GameCard = ({ name, imgs, price, _id, favourite }) => {
