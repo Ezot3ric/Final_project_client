@@ -4,11 +4,12 @@ const GamesFilter = ({ filterGames }) => {
 
     return (
         <Container>
-
-
             <div>
-                <input type="text" className="FilterGames" placeholder="Search game for name..." onChange={filterGames} />
-                <hr />
+                <div className="search-box">
+                    <button class="btn-search"><i class="fas fa-search"></i></button>
+                    <input type="text" className='input-search' placeholder="Type to Search..." onChange={filterGames} />
+                    <hr />
+                </div>
             </div>
 
         </Container>
@@ -16,3 +17,8 @@ const GamesFilter = ({ filterGames }) => {
 }
 
 export default GamesFilter
+
+/*< div class="search-box" >
+<button class="btn-search"><i class="fas fa-search"></i></button>
+<input type="text" class="input-search" placeholder="Type to Search...">
+</div>*/
