@@ -6,7 +6,7 @@ const PaymentConfirmPage = () => {
     return (
         <Container>
             <div className='Payment'>
-                <img src="https://www.beauty-addict.com/wp-content/uploads/2021/02/Payment-success.png" alt="payment" />
+                <img src="https://rsrnurburg.com/wp-content/uploads/2020/01/success-200x200.jpg" alt="payment" />
             </div>
         </Container>
     )
