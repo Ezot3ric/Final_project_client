@@ -91,7 +91,7 @@ const GameDetails = () => {
       <div className="GameDetails">
 
         <Row>
-          <Col md={6} span={6}>
+          <Col md={6}>
 
             <h3>{game.name}</h3>
             <p>{game.description}</p>
@@ -104,7 +104,7 @@ const GameDetails = () => {
 
           </Col>
 
-          <Col md={6} span={6}>
+          <Col md={6}>
 
             <Carousel>
               {
@@ -118,16 +118,19 @@ const GameDetails = () => {
                   </Carousel.Item>)
                 })
               }
-
             </Carousel>
+
           </Col>
+
         </Row>
-        <Link to={`/game-update/${game_id}`}>
-          <h1>{user?.role === 'ADMIN' && <Button className='button-86' as="div">Update game</Button>}</h1>
-        </Link>
-        <h1>{user?.role === 'ADMIN' && <Button className='button-86' onClick={handleDelete} variant='dark' as='div'>Delete Game</Button>}</h1>
-        <div className="d-flex justify-content-center">
-          <Button className='button-86' onClick={() => addItem(game._id)} variant='dark' as='div'>Add to cart</Button>
+        <div>
+          <Link to={`/game-update/${game_id}`}>
+            <h1>{user?.role === 'ADMIN' && <Button className='button-86' as="div">Update game</Button>}</h1>
+          </Link>
+          <h1>{user?.role === 'ADMIN' && <Button className='button-86' onClick={handleDelete} variant='dark' as='div'>Delete Game</Button>}</h1>
+          <div className="d-flex justify-content-center">
+            <Button className='button-86' onClick={() => addItem(game._id)} variant='dark' as='div'>Add to cart</Button>
+          </div>
         </div>
       </div>
     </Container >
