@@ -6,13 +6,16 @@ import './UserProfile.css'
 
 export default function UserProfile({ user }) {
 
+
+
     return (
         <>
 
             <Container>
                 <Row>
-                    <Card className='GameCard mb-2'></Card>
-                    <Col md="4" span="4">
+                    <Col md={3}>
+
+                        <Card className='GameCard mb-2'></Card>
                         <h2>User Profile</h2>
                         <hr />
                         <div className='avatar'>
@@ -20,11 +23,11 @@ export default function UserProfile({ user }) {
                             <hr />
                         </div>
                         <hr />
-                        <Form.Label>{user.name}</Form.Label>
+                        <Form.Label><p>Name: {user.name}</p></Form.Label>
                         <br />
-                        <Form.Label>{user.username}</Form.Label>
+                        <Form.Label><p>Username: {user.username}</p></Form.Label>
                         <br />
-                        <Form.Label>{user.email}</Form.Label>
+                        <Form.Label><p>E-mail: {user.email}</p></Form.Label>
 
                         <Link to={`/my-profile/edit`}>
                             <div className="d-grid mb-6">
@@ -32,16 +35,19 @@ export default function UserProfile({ user }) {
                             </div>
                         </Link>
                     </Col>
-
-                    <h1>Wishlist</h1>
-                    {
-                        user.favorites?.map((favorite) => (
-                            <Col md="2" span="4" key={favorite._id}>
-                                <FavoritesCard {...favorite} />
-                            </Col>
-                        ))
-                    }
-
+                    <Col md={2}></Col>
+                    <Col md={6}>
+                        <h1>Wishlist</h1>
+                        <Row>
+                            {
+                                user.favorites?.map((favorite) => (
+                                    <Col md={4} key={favorite._id}>
+                                        <FavoritesCard {...favorite} />
+                                    </Col>
+                                ))
+                            }
+                        </Row>
+                    </Col>
                 </Row>
             </Container>
 

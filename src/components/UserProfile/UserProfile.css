@@ -60,6 +60,7 @@ h2 {
     animation-timing-function: steps(2, end);
 }
 
+
 @keyframes glitch {
     0% {
         clip-path: var(--slice-1);
